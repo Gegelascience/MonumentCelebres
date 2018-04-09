@@ -15,6 +15,7 @@ declare var BABYLON:any;
 export class MonumentComponent implements OnInit {
 
   Monument:any;
+  choixInfo:number;
   monumentName:string;
   typeCam:boolean;
   details:any=[];
@@ -38,7 +39,7 @@ export class MonumentComponent implements OnInit {
     var temp:any;
     this.info.getInfoMonument()
     .subscribe(data=>{
-      this.details=data[0];
+      this.details=data[this.choixInfo];
     });
    
 
@@ -83,12 +84,15 @@ export class MonumentComponent implements OnInit {
 
   chooseMonument(name:string){
     if (name=="eiffel"){
+      this.choixInfo=0;
       return new TourEiffel;
     }
     else if (name=="pyramid") {
+      this.choixInfo=1;
       return new Pyramid;
     }
     else if (name=="bigben") {
+      this.choixInfo=2;
       return new BigBen;
     }
     else{
