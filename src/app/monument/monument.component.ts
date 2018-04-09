@@ -3,6 +3,7 @@ import { TourEiffel } from '../class/tour-eiffel';
 import {ActivatedRoute, Params} from '@angular/router';
 import { Pyramid } from '../class/pyramid';
 import {BigBen} from '../class/big-ben';
+import {InfosMonumenttService} from '../services/infos-monumentt.service';
 
 declare var BABYLON:any;
 
@@ -16,10 +17,9 @@ export class MonumentComponent implements OnInit {
   Monument:any;
   monumentName:string;
   typeCam:boolean;
+  details:any=[];
 
-  constructor(private route: ActivatedRoute) {
-    
-    //this.Monument=new TourEiffel();
+  constructor(private route: ActivatedRoute, private info:InfosMonumenttService ) {
     this.typeCam=false;
     var cam='';
     this.route.params.forEach((params: Params) => {
@@ -33,6 +33,14 @@ export class MonumentComponent implements OnInit {
    }
 
   ngOnInit() {
+    
+
+    var temp:any;
+    this.info.getInfoMonument()
+    .subscribe(data=>{
+      this.details=data[0];
+    });
+   
 
     var canvas = document.getElementById("renderCanvas");
     var engine = new BABYLON.Engine(canvas, true); 
