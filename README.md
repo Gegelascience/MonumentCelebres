@@ -20,3 +20,10 @@ Ce projet représente grâce à babylon.js des monuments célèbres en 3D.
 -Taper la commande "ng serve" dans à la racine du projet;
 
 -Enfin, sur le navigateur de votre choix, taper l'URL "localhost:4200" 
+
+#Voir la documentation
+
+Ce projet utilise compodoc ("npm i -g @compodoc/compodoc" pour l'installer).
+
+Pour voir la documentation taper dans le répertoire du projet la commande "compodoc -s" 
+et aller à "localhost:8080".

@@ -1,0 +1,1 @@
+var ROUTES_INDEX = {"name":"<root>","kind":"module","className":"AppModule","children":[{"kind":"component","component":"AccueilComponent","path":"accueil"},{"kind":"component","component":"MonumentComponent","path":"monument/:name/:cam"},{"kind":"component","component":"PageNotFoundComponent","path":"**"}]}
