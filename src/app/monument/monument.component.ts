@@ -5,7 +5,15 @@ import { Pyramid } from '../class/pyramid';
 import {BigBen} from '../class/big-ben';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
 
+/**
+ * Variable d'export de BabylonJS
+ */
+
 declare var BABYLON:any;
+
+/**
+ * Page affichant un monument en 3d et ses détails
+ */
 
 @Component({
   selector: 'app-monument',
@@ -14,14 +22,41 @@ declare var BABYLON:any;
 })
 export class MonumentComponent implements OnInit {
 
+  /**
+   * Monument à afficher
+   */
+
   Monument:any;
+
+  /**
+   * index du choix de monument
+   */
+
   choixInfo:number;
+
+  /**
+   * nom du monument
+   */
+
   monumentName:string;
-  typeCam:boolean;
+
+  /**
+   * variable indiquant s'il y a réalité virtuelle ou non
+   */
+
+  typeCam:boolean=false;
+
+  /**
+   * liste des détails du monument
+   */
+
   details:any=[];
 
+  /**
+   * Constructeur du component monument
+   */
+
   constructor(private route: ActivatedRoute, private info:InfosMonumenttService ) {
-    this.typeCam=false;
     var cam='';
     this.route.params.forEach((params: Params) => {
       cam=params['cam'];
@@ -32,6 +67,10 @@ export class MonumentComponent implements OnInit {
       this.typeCam=true;
     }
    }
+
+   /**
+   * onInit du component monument
+   */
 
   ngOnInit() {
     
@@ -46,31 +85,9 @@ export class MonumentComponent implements OnInit {
     var canvas = document.getElementById("renderCanvas");
     var engine = new BABYLON.Engine(canvas, true); 
 
-    var createEiffel=function (Monument:any,Cam:boolean){
-      
-      // Create the scene space
-      var scene = new BABYLON.Scene(engine);
+    
 
-      scene.clearColor=new BABYLON.Color3(0,0,0);
-
-      if (!Cam){
-        // Caméra classique
-        var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
-        camera.setPosition(new BABYLON.Vector3(0, 50, 400));
-        camera.attachControl(canvas, false);
-      }else{
-        //Caméra VR	
-        var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/2,150, new BABYLON.Vector3 (0, 0, 0), scene);
-        camera.attachControl(canvas, true);
-      }
-
-      //dessin tour eiffel
-      Monument.Draw(BABYLON,scene);
-
-      return scene;
-    };
-
-    var scene = createEiffel(this.Monument,this.typeCam); //Call the createScene function
+    var scene = this.createMonument(this.Monument,this.typeCam,canvas,engine); //Call the createScene function
 
     engine.runRenderLoop(function () { // Register a render loop to repeatedly render the scene
           scene.render();
@@ -81,6 +98,10 @@ export class MonumentComponent implements OnInit {
       engine.resize();
     });
   }
+
+  /**
+   * fonction pour détecter le monument à afficher
+   */
 
   chooseMonument(name:string){
     if (name=="eiffel"){
@@ -100,14 +121,50 @@ export class MonumentComponent implements OnInit {
     }
   }
 
+  /**
+   * fonction pour désactiver la réalité virtuelle
+   */
+
   NoVr(event){
     console.log("no vr");
     window.location.pathname="/monument/"+this.monumentName+"/rr";
   }
 
+  /**
+   * fonction pour activer la réalité virtuelle
+   */
+
   YesVr(event){
     console.log("vr");
     window.location.pathname="/monument/"+this.monumentName+"/vr";
   }
+
+  /**
+  * fonction qui crée en 3d un monument
+  */
+
+  createMonument(Monument:any,Cam:boolean,canvas,engine){
+      
+    // Create the scene space
+    var scene = new BABYLON.Scene(engine);
+
+    scene.clearColor=new BABYLON.Color3(0,0,0);
+
+    if (!Cam){
+        // Caméra classique
+        var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
+        camera.setPosition(new BABYLON.Vector3(0, 50, 400));
+        camera.attachControl(canvas, false);
+    }else{
+        //Caméra VR	
+        var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/2,150, new BABYLON.Vector3 (0, 0, 0), scene);
+        camera.attachControl(canvas, true);
+    }
+
+    //dessin tour eiffel
+    Monument.Draw(BABYLON,scene);
+
+    return scene;
+  };
 
 }

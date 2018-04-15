@@ -1,8 +1,21 @@
+
+/**
+ * Classe des pyramides de Gizeh
+ */
+
 export class Pyramid {
+
+    /**
+   * Constructeur par défaut
+   */
 
     constructor() {
 
     }
+
+    /**
+     * fonction pour dessiner les pyramides de Gizeh
+     */
 
     public Draw(BABYLON:any,scene:any){
         

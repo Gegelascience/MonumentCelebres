@@ -1,8 +1,21 @@
+
+/**
+ * Classe de Big Ben
+ */
+
 export class BigBen {
+
+  /**
+   * Constructeur par défaut
+   */
 
     constructor() {
 
     }
+
+    /**
+     * fonction pour dessiner Big Ben
+     */
 
     public Draw(BABYLON:any,scene:any){
       //couleurs

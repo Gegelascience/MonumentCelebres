@@ -1,8 +1,20 @@
+
+/**
+ * Classe de la Tour Eiffel
+ */
+
 export class TourEiffel {
 
+  /**
+   * Constructeur par défaut
+   */
     constructor() {
 
     }
+
+    /**
+     * fonction pour dessiner la tour Eiffel
+     */
 
     public Draw(BABYLON:any,scene:any){
         //couleurs

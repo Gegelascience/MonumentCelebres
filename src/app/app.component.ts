@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+/**
+ * component de routage
+ */
+
 @Component({
   selector: 'app-root',
   template: `
