@@ -13,7 +13,7 @@ import {InfosMonumenttService} from './services/infos-monumentt.service'
 
 const appRoutes: Routes = [
   {path:'accueil', component: AccueilComponent},
-  {path: 'monument/:name/:cam', component: MonumentComponent },
+  {path: 'monument/:name', component: MonumentComponent },
   { path: '',
     redirectTo: '/accueil',
     pathMatch: 'full'

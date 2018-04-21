@@ -40,14 +40,19 @@ export class TourEiffel {
       socle1.material=matsocle;
 
       var socle2=socle1.createInstance("socle2");
+     
       socle2.position.x=30;
       
       var socle3=socle1.createInstance("socle3");
+      
       socle3.position.z=-30;
 
       var socle4=socle1.createInstance("socle4");
+      
       socle4.position.z=-30;
       socle4.position.x=30;
+
+      
 
       //piliers socle => 1er étage
       var piliercorner1=[
@@ -118,10 +123,12 @@ export class TourEiffel {
       arch1b.position.x=-18;
       arch1b.rotation.z =1.37;
       
+      
       var arch2b=arch1b.createInstance("arch2");
       arch2b.position.x=18;
       arch2b.rotation.y=Math.PI;
 
+      
       var arch3b=arch1b.createInstance("arch3");
       arch3b.position.x=0;
       arch3b.position.z=18;

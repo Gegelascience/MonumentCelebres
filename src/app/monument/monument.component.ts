@@ -41,12 +41,6 @@ export class MonumentComponent implements OnInit {
   monumentName:string;
 
   /**
-   * variable indiquant s'il y a réalité virtuelle ou non
-   */
-
-  typeCam:boolean=false;
-
-  /**
    * liste des détails du monument
    */
 
@@ -57,15 +51,10 @@ export class MonumentComponent implements OnInit {
    */
 
   constructor(private route: ActivatedRoute, private info:InfosMonumenttService ) {
-    var cam='';
     this.route.params.forEach((params: Params) => {
-      cam=params['cam'];
       this.monumentName=params['name'];
       this.Monument=this.chooseMonument(this.monumentName)
     });
-    if(cam=='vr'){
-      this.typeCam=true;
-    }
    }
 
    /**
@@ -87,7 +76,7 @@ export class MonumentComponent implements OnInit {
 
     
 
-    var scene = this.createMonument(this.Monument,this.typeCam,canvas,engine); //Call the createScene function
+    var scene = this.createMonument(this.Monument,canvas,engine); //Call the createScene function
 
     engine.runRenderLoop(function () { // Register a render loop to repeatedly render the scene
           scene.render();
@@ -121,48 +110,51 @@ export class MonumentComponent implements OnInit {
     }
   }
 
-  /**
-   * fonction pour désactiver la réalité virtuelle
-   */
-
-  NoVr(event){
-    console.log("no vr");
-    window.location.pathname="/monument/"+this.monumentName+"/rr";
-  }
-
-  /**
-   * fonction pour activer la réalité virtuelle
-   */
-
-  YesVr(event){
-    console.log("vr");
-    window.location.pathname="/monument/"+this.monumentName+"/vr";
-  }
+ 
 
   /**
   * fonction qui crée en 3d un monument
   */
 
-  createMonument(Monument:any,Cam:boolean,canvas,engine){
+  createMonument(Monument:any,canvas,engine){
       
     // Create the scene space
     var scene = new BABYLON.Scene(engine);
+    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
+    camera.setPosition(new BABYLON.Vector3(0, 50, -400));
+    camera.attachControl(canvas, false);
+
+    var vrHelper = scene.createDefaultVRExperience();
 
     scene.clearColor=new BABYLON.Color3(0,0,0);
 
-    if (!Cam){
-        // Caméra classique
-        var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
-        camera.setPosition(new BABYLON.Vector3(0, 50, 400));
-        camera.attachControl(canvas, false);
-    }else{
-        //Caméra VR	
-        var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/2,150, new BABYLON.Vector3 (0, 0, 0), scene);
-        camera.attachControl(canvas, true);
-    }
 
+    
     //dessin tour eiffel
     Monument.Draw(BABYLON,scene);
+
+    var leftHand = BABYLON.Mesh.CreateBox("",0.1, scene)
+    leftHand.scaling.z = 2;
+    var rightHand = leftHand.clone()
+    var head = BABYLON.Mesh.CreateBox("",0.2, scene) 
+
+    // Logic to be run every frame
+    scene.onBeforeRenderObservable.add(()=>{
+        // Left and right hand position/rotation
+        if(vrHelper.webVRCamera.leftController){
+            leftHand.position = vrHelper.webVRCamera.leftController.devicePosition.clone()
+            leftHand.rotationQuaternion = vrHelper.webVRCamera.leftController.deviceRotationQuaternion.clone()
+        }
+        if(vrHelper.webVRCamera.rightController){
+            rightHand.position = vrHelper.webVRCamera.rightController.devicePosition.clone()
+            rightHand.rotationQuaternion = vrHelper.webVRCamera.rightController.deviceRotationQuaternion.clone()
+        }
+
+        // Head position/rotation
+        head.position = vrHelper.webVRCamera.devicePosition.clone()
+        head.rotationQuaternion = vrHelper.webVRCamera.deviceRotationQuaternion.clone()
+        head.position.z = 2;
+    })
 
     return scene;
   };
