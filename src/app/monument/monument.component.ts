@@ -122,17 +122,16 @@ export class MonumentComponent implements OnInit {
     var scene = new BABYLON.Scene(engine);
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
     camera.setPosition(new BABYLON.Vector3(0, 50, -400));
-    camera.attachControl(canvas, false);
-
-    var vrHelper = scene.createDefaultVRExperience();
-
+    camera.attachControl(canvas, true);
     scene.clearColor=new BABYLON.Color3(0,0,0);
 
-
+    //init de la caméra VR
+    var vrHelper = scene.createDefaultVRExperience();
     
-    //dessin tour eiffel
+    //dessin monument
     Monument.Draw(BABYLON,scene);
 
+    //gestion des mouvements de la caméra VR
     var leftHand = BABYLON.Mesh.CreateBox("",0.1, scene)
     leftHand.scaling.z = 2;
     var rightHand = leftHand.clone()

@@ -20,124 +20,60 @@ export class TourEiffel {
         //couleurs
       var matsocle=new BABYLON.StandardMaterial("matsocle1",scene);
       matsocle.emissiveColor =new BABYLON.Color3(205/255,173/255,0/255);
-      
-      matsocle.backFaceCulling = false;
+      matsocle.backFaceCulling = true;
 
       var matetage=new BABYLON.StandardMaterial("matetage",scene);
       matetage.emissiveColor =new BABYLON.Color3(153/255,153/255,153/255);
-      //matetage.wireframe=true;
       matetage.backFaceCulling = false;
 
       //socle piliers
-      var corner=[
-        new BABYLON.Vector2(-20,20),
-        new BABYLON.Vector2(-20,10),
-        new BABYLON.Vector2(-10,10),
-        new BABYLON.Vector2(-10,20),
-                  ]
-      var carre= new BABYLON.PolygonMeshBuilder("socle1",corner,scene);
-      var socle1=carre.build(null,2);
+      
+      var socle1 = BABYLON.MeshBuilder.CreateBox("box", {height: 2,width:10,depth:10}, scene);
       socle1.material=matsocle;
+      socle1.position.y=-1.5;
+      socle1.position.z=15;
+      socle1.position.x=-15;
 
       var socle2=socle1.createInstance("socle2");
-     
-      socle2.position.x=30;
+      socle2.position.x=15;
       
       var socle3=socle1.createInstance("socle3");
-      
-      socle3.position.z=-30;
+      socle3.position.z=-15;
 
       var socle4=socle1.createInstance("socle4");
-      
-      socle4.position.z=-30;
-      socle4.position.x=30;
-
-      
+      socle4.position.z=-15;
+      socle4.position.x=15;
 
       //piliers socle => 1er étage
-      var piliercorner1=[
-        new BABYLON.Vector2(6,0),
-        new BABYLON.Vector2(0,0),
-        new BABYLON.Vector2(6,30),
-        new BABYLON.Vector2(12,30),
-      ]
 
-      var face1Pilier1= new BABYLON.PolygonMeshBuilder("face1p1",piliercorner1,scene);
+      var pilier1_path=new BABYLON.Path2(6, -1.5);
+      pilier1_path.addLineTo(0, -1.5);
+      pilier1_path.addLineTo(6, 28.5);
+      pilier1_path.addLineTo(30, 28.5);
+      pilier1_path.addLineTo(36, -1.5);
+      pilier1_path.addLineTo(30, -1.5);
+      pilier1_path.addLineTo(27, 18.5);
+      pilier1_path.addArcTo(18, 25, 9, 18.5, 50);
+
+      var face1Pilier1= new BABYLON.PolygonMeshBuilder("face1p1",pilier1_path,scene);
       var f1p1=face1Pilier1.build(null,0.1);
 
       f1p1.position.x=-18;
       f1p1.position.z=18;
       f1p1.rotation.x=1.37-Math.PI;
 
-      var piliercorner2=[
-        new BABYLON.Vector2(0,-6),
-        new BABYLON.Vector2(0,0),
-        new BABYLON.Vector2(30,-6),
-        new BABYLON.Vector2(30,-12),
-      ]
-
-      var face2Pilier1= new BABYLON.PolygonMeshBuilder("face2p1",piliercorner2,scene);
-      var f2p1=face2Pilier1.build(null,0.1);
-
-      f2p1.position.x=-18;
-      f2p1.position.z=18;
-      f2p1.rotation.z=1.37;
-
-
       var f1p2=f1p1.createInstance("face1p2");
       f1p2.position.x=18;
       f1p2.rotation.y=Math.PI/2;
-
-      var f2p2=f2p1.createInstance("face2p2");
-      f2p2.position.x=18;
-      f2p2.rotation.y=Math.PI/2;
 
       var f1p3=f1p1.createInstance("face1p3");
       f1p3.position.z=-18;
       f1p3.rotation.y=-Math.PI/2;
 
-      var f2p3=f2p1.createInstance("face2p3");
-      f2p3.position.z=-18;
-      f2p3.rotation.y=-Math.PI/2;
-
       var f1p4=f1p1.createInstance("face1p4");
       f1p4.position.x=18;
       f1p4.position.z=-18;
       f1p4.rotation.y=Math.PI;
-
-      var f2p4=f2p1.createInstance("face2p4");
-      f2p4.position.x=18;
-      f2p4.position.z=-18;
-      f2p4.rotation.y=Math.PI;
-
-
-      //arches
-      var arch_path = new BABYLON.Path2(15, 9);
-      arch_path.addLineTo(30, 6);
-      arch_path.addLineTo(30, -6);
-      arch_path.addLineTo(15, -9);
-      arch_path.addArcTo(25, 0, 15, 9, 100);
-
-      var arch1 = new BABYLON.PolygonMeshBuilder("arch1", arch_path, scene);
-      var arch1b = arch1.build(false, 0.1); //updatable, extrusion depth - both optional
-      arch1b.position.x=-18;
-      arch1b.rotation.z =1.37;
-      
-      
-      var arch2b=arch1b.createInstance("arch2");
-      arch2b.position.x=18;
-      arch2b.rotation.y=Math.PI;
-
-      
-      var arch3b=arch1b.createInstance("arch3");
-      arch3b.position.x=0;
-      arch3b.position.z=18;
-      arch3b.rotation.y=Math.PI/2;
-
-      var arch4b=arch1b.createInstance("arch4");
-      arch4b.position.x=0;
-      arch4b.position.z=-18;
-      arch4b.rotation.y=-Math.PI/2;
 
       //1er étage
       var etage1corner=[
@@ -160,7 +96,7 @@ export class TourEiffel {
       niveau1.position.y=32;
 
       //piliers 1er étage => 2eme étage
-      piliercorner1=[
+      var piliercorner1=[
         new BABYLON.Vector2(6,0),
         new BABYLON.Vector2(0,0),
         new BABYLON.Vector2(3,20),
@@ -176,7 +112,7 @@ export class TourEiffel {
       f1p1lvl2.position.y=32;
       f1p1lvl2.rotation.x=1.42-Math.PI;
 
-      piliercorner2=[
+      var piliercorner2=[
         new BABYLON.Vector2(0,-6),
         new BABYLON.Vector2(0,0),
         new BABYLON.Vector2(20,-3),
