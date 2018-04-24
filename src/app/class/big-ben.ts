@@ -58,18 +58,9 @@ export class BigBen {
       f2p3lvl3.position.x=0;
       f2p3lvl3.rotation.y=-Math.PI/2;
 
-
-      var cornerhaut=[
-        new BABYLON.Vector2(-6,6),
-        new BABYLON.Vector2(6,6),
-        new BABYLON.Vector2(6,-6),
-        new BABYLON.Vector2(-6,-6),
-      ]
-
-      var hautcarre= new BABYLON.PolygonMeshBuilder("hautcarre",cornerhaut,scene);
-      var haut=hautcarre.build(null,5);
+      var haut = BABYLON.MeshBuilder.CreateBox("hautcarre", {height: 5,width:12,depth:12}, scene);
       haut.material=matsocle;
-      haut.position.y=45;
+      haut.position.y=44;
       
       var pilier_path = new BABYLON.Path2(0, 6);
       pilier_path.addLineTo(0, -6);
@@ -97,31 +88,15 @@ export class BigBen {
       toit4.rotation.y=-Math.PI/2;
 
       //pilier
-      var corner=[
-        new BABYLON.Vector2(-12,12),
-        new BABYLON.Vector2(12,12),
-        new BABYLON.Vector2(12,-12),
-        new BABYLON.Vector2(-12,-12),
-                  ]
-      var carre= new BABYLON.PolygonMeshBuilder("socle1",corner,scene);
-      var socle1=carre.build(null,120);
+      var socle1 = BABYLON.MeshBuilder.CreateBox("socle1", {height: 120,width:24,depth:24}, scene);
       socle1.material=matsocle;
-      socle1.position.y=35;
+      socle1.position.y=-25;
 
       //support horloge
-      var corner2=[
-        new BABYLON.Vector2(-15,15),
-        new BABYLON.Vector2(15,15),
-        new BABYLON.Vector2(15,-15),
-        new BABYLON.Vector2(-15,-15),
-      ]
-      var carresup=new BABYLON.PolygonMeshBuilder("socle2",corner2,scene);
-      var support=carresup.build(null,30);
+      var support = BABYLON.MeshBuilder.CreateBox("socle2", {height: 30,width:30,depth:30}, scene);
       support.material=matsocle;
-      support.position.y=30;
+      support.position.y=15;
       
-
-
       //horloge
       var faceClock = BABYLON.MeshBuilder.CreateCylinder("clock", {diameterTop:25, diameterBottom:25, height: 2, tessellation: 96}, scene);
       faceClock.material=clockColor;
