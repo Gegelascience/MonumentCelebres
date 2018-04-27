@@ -9,10 +9,13 @@ import { PageNotFoundComponent } from './error404/page-not-found/page-not-found.
 import { MonumentComponent } from './monument/monument.component';
 
 import {InfosMonumenttService} from './services/infos-monumentt.service'
+import { D3Service } from 'd3-ng2-service';
+import { StatistiquesComponent } from './statistiques/statistiques.component';
 
 
 const appRoutes: Routes = [
   {path:'accueil', component: AccueilComponent},
+  {path:'stat',component:StatistiquesComponent},
   {path: 'monument/:name', component: MonumentComponent },
   { path: '',
     redirectTo: '/accueil',
@@ -27,14 +30,15 @@ const appRoutes: Routes = [
     AppComponent,
     AccueilComponent,
     PageNotFoundComponent,
-    MonumentComponent
+    MonumentComponent,
+    StatistiquesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [InfosMonumenttService],
+  providers: [InfosMonumenttService,D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
