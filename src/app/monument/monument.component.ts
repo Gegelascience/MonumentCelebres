@@ -120,40 +120,19 @@ export class MonumentComponent implements OnInit {
       
     // Create the scene space
     var scene = new BABYLON.Scene(engine);
+    //var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/4, 25, new BABYLON.Vector3 (0, 0, 0), scene);
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
     camera.setPosition(new BABYLON.Vector3(0, 50, -400));
-    camera.attachControl(canvas, true);
+    camera.attachControl(canvas, false);
+
+
+    
     scene.clearColor=new BABYLON.Color3(0,0,0);
 
-    //init de la caméra VR
-    var vrHelper = scene.createDefaultVRExperience();
     
     //dessin monument
     Monument.Draw(BABYLON,scene);
 
-    //gestion des mouvements de la caméra VR
-    var leftHand = BABYLON.Mesh.CreateBox("",0.1, scene)
-    leftHand.scaling.z = 2;
-    var rightHand = leftHand.clone()
-    var head = BABYLON.Mesh.CreateBox("",0.2, scene) 
-
-    // Logic to be run every frame
-    scene.onBeforeRenderObservable.add(()=>{
-        // Left and right hand position/rotation
-        if(vrHelper.webVRCamera.leftController){
-            leftHand.position = vrHelper.webVRCamera.leftController.devicePosition.clone()
-            leftHand.rotationQuaternion = vrHelper.webVRCamera.leftController.deviceRotationQuaternion.clone()
-        }
-        if(vrHelper.webVRCamera.rightController){
-            rightHand.position = vrHelper.webVRCamera.rightController.devicePosition.clone()
-            rightHand.rotationQuaternion = vrHelper.webVRCamera.rightController.deviceRotationQuaternion.clone()
-        }
-
-        // Head position/rotation
-        head.position = vrHelper.webVRCamera.devicePosition.clone()
-        head.rotationQuaternion = vrHelper.webVRCamera.deviceRotationQuaternion.clone()
-        head.position.z = 2;
-    })
 
     return scene;
   };
