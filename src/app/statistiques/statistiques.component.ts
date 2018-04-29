@@ -30,6 +30,16 @@ export class StatistiquesComponent implements OnInit {
     }
   ];
 
+  private dataTest={
+    nb_planets : 3700, 
+    nb_stars : 3000, 
+    nb_planet_year : {
+      nb_planet : [50,3700],
+      year : ["1995","2018"]
+    }
+  }
+  compteur:number=-1;
+
   constructor(d3Service: D3Service,private info:InfosMonumenttService) {
     this.d3 = d3Service.getD3();
    }
@@ -48,7 +58,7 @@ export class StatistiquesComponent implements OnInit {
       this.DrawCharHeight();
       this.DrawCharWidth();
     });
-    
+    //this.DrawChartest(this)
   }
 
    /**
@@ -154,5 +164,55 @@ export class StatistiquesComponent implements OnInit {
       .attr("width", x.bandwidth)
       .attr("y", function(d) { return y(d.largeur); })
       .attr("height", function(d) { return height - y(d.largeur); });
+  }
+//--------------------------------------------------------------------
+
+  DrawChartest(contextpage:any){
+    let margin = {top: 5, right: 20, bottom: 30, left: 40};
+    let width = 600 - margin.left - margin.right;
+    let height = 600 - margin.top - margin.bottom;
+ 
+    let svg = this.d3.select('#test')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+      .style('background-color', '#efefef');
+
+    let chart = svg.append("g")
+      .attr('class', 'bar')
+      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    let xDomain = this.dataTest.nb_planet_year.year.map(d => d);
+    let yDomain = [0, this.d3.max(this.dataTest.nb_planet_year.nb_planet)];
+
+    let x = this.d3.scaleBand()
+            .domain(xDomain)
+            .rangeRound([0, width])
+            .padding(0.2);
+
+    let y = this.d3.scaleLinear()
+            .domain(yDomain)
+            .range([height, 0]);
+
+    // add the x Axis
+    svg.append("g")
+      .attr('class', 'x axis')
+      .attr('transform', `translate(${margin.left}, ${margin.top + height})`)
+      .call(this.d3.axisBottom(x));
+
+    // add the y Axis
+    svg.append("g")
+      .attr('class', 'y axis')
+      .attr('transform', `translate(${margin.left}, ${margin.top})`)
+      .call(this.d3.axisLeft(y));
+
+    svg.selectAll("bar")
+      .data(this.dataTest.nb_planet_year.nb_planet)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("fill","blue")
+      .attr("x", function(d,i) {contextpage.compteur+=1; return margin.left + x(contextpage.dataTest.nb_planet_year.year[contextpage.compteur]) ;  })
+      .attr("width", x.bandwidth)
+      .attr("y", function(d) { return y(d); })
+      .attr("height", function(d) { return height - y(d); });
   }
 }

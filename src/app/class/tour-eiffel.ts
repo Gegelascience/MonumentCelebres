@@ -34,16 +34,17 @@ export class TourEiffel {
       socle1.position.z=15;
       socle1.position.x=-15;
 
-      var socle2=socle1.createInstance("socle2");
+      var socle2=socle1.clone("socle2");
       socle2.position.x=15;
       
-      var socle3=socle1.createInstance("socle3");
+      var socle3=socle1.clone("socle3");
       socle3.position.z=-15;
 
-      var socle4=socle1.createInstance("socle4");
+      var socle4=socle1.clone("socle4");
       socle4.position.z=-15;
       socle4.position.x=15;
 
+      var socles=BABYLON.Mesh.MergeMeshes([socle1,socle2,socle3,socle4]);
       //piliers socle => 1er étage
 
       var pilier1_path=new BABYLON.Path2(6, -1.5);
@@ -57,7 +58,7 @@ export class TourEiffel {
 
       var face1Pilier1= new BABYLON.PolygonMeshBuilder("face1p1",pilier1_path,scene);
       var f1p1=face1Pilier1.build(null,0.1);
-
+      f1p1.material=matsocle;
       f1p1.position.x=-18;
       f1p1.position.z=18;
       f1p1.rotation.x=1.37-Math.PI;
@@ -106,7 +107,6 @@ export class TourEiffel {
       var face1pil2lvl2= new BABYLON.PolygonMeshBuilder("face1pil1lvl2",piliercorner1,scene);
       var f1p1lvl2=face1pil2lvl2.build(null,0.1);
       f1p1lvl2.material=matsocle;
-
       f1p1lvl2.position.x=-12;
       f1p1lvl2.position.z=12;
       f1p1lvl2.position.y=32;
@@ -121,7 +121,7 @@ export class TourEiffel {
 
       var face2pil2lvl2= new BABYLON.PolygonMeshBuilder("face2pil1lvl2",piliercorner2,scene);
       var f2p1lvl2=face2pil2lvl2.build(null,0.1);
-
+      f2p1lvl2.material=matsocle;
       f2p1lvl2.position.x=-12;
       f2p1lvl2.position.z=12;
       f2p1lvl2.position.y=32;
