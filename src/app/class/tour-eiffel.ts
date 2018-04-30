@@ -101,7 +101,7 @@ export class TourEiffel {
         new BABYLON.Vector2(6,0),
         new BABYLON.Vector2(0,0),
         new BABYLON.Vector2(3,20),
-        new BABYLON.Vector2(9,20),
+        new BABYLON.Vector2(9,20)
       ]
 
       var face1pil2lvl2= new BABYLON.PolygonMeshBuilder("face1pil1lvl2",piliercorner1,scene);
@@ -116,7 +116,7 @@ export class TourEiffel {
         new BABYLON.Vector2(0,-6),
         new BABYLON.Vector2(0,0),
         new BABYLON.Vector2(20,-3),
-        new BABYLON.Vector2(20,-9),
+        new BABYLON.Vector2(20,-9)
       ]
 
       var face2pil2lvl2= new BABYLON.PolygonMeshBuilder("face2pil1lvl2",piliercorner2,scene);
@@ -202,7 +202,7 @@ export class TourEiffel {
       f2p3lvl3.position.x=0;
       f2p3lvl3.rotation.y=-Math.PI/2;
 
-      //2eme étage
+      //3eme étage
       var etage3corner=[
         new BABYLON.Vector2(4,4),
         new BABYLON.Vector2(-4,4),
