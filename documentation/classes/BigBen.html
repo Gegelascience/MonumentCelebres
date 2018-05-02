@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#xs-components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="xs-components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -95,18 +95,21 @@
                                         <li class="link">
                                             <a href="components/MonumentComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">MonumentComponent</a>
                                         </li>
+                                        <li class="link">
+                                            <a href="components/StatistiquesComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">StatistiquesComponent</a>
+                                        </li>
                                 </ul>
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#xs-injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="xs-injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -258,14 +261,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -279,18 +282,21 @@
                                         <li class="link">
                                             <a href="components/MonumentComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">MonumentComponent</a>
                                         </li>
+                                        <li class="link">
+                                            <a href="components/StatistiquesComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">StatistiquesComponent</a>
+                                        </li>
                                 </ul>
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -640,18 +646,9 @@
       f2p3lvl3.position.x&#x3D;0;
       f2p3lvl3.rotation.y&#x3D;-Math.PI/2;
 
-
-      var cornerhaut&#x3D;[
-        new BABYLON.Vector2(-6,6),
-        new BABYLON.Vector2(6,6),
-        new BABYLON.Vector2(6,-6),
-        new BABYLON.Vector2(-6,-6),
-      ]
-
-      var hautcarre&#x3D; new BABYLON.PolygonMeshBuilder(&quot;hautcarre&quot;,cornerhaut,scene);
-      var haut&#x3D;hautcarre.build(null,5);
+      var haut &#x3D; BABYLON.MeshBuilder.CreateBox(&quot;hautcarre&quot;, {height: 5,width:12,depth:12}, scene);
       haut.material&#x3D;matsocle;
-      haut.position.y&#x3D;45;
+      haut.position.y&#x3D;44;
       
       var pilier_path &#x3D; new BABYLON.Path2(0, 6);
       pilier_path.addLineTo(0, -6);
@@ -679,31 +676,15 @@
       toit4.rotation.y&#x3D;-Math.PI/2;
 
       //pilier
-      var corner&#x3D;[
-        new BABYLON.Vector2(-12,12),
-        new BABYLON.Vector2(12,12),
-        new BABYLON.Vector2(12,-12),
-        new BABYLON.Vector2(-12,-12),
-                  ]
-      var carre&#x3D; new BABYLON.PolygonMeshBuilder(&quot;socle1&quot;,corner,scene);
-      var socle1&#x3D;carre.build(null,120);
+      var socle1 &#x3D; BABYLON.MeshBuilder.CreateBox(&quot;socle1&quot;, {height: 120,width:24,depth:24}, scene);
       socle1.material&#x3D;matsocle;
-      socle1.position.y&#x3D;35;
+      socle1.position.y&#x3D;-25;
 
       //support horloge
-      var corner2&#x3D;[
-        new BABYLON.Vector2(-15,15),
-        new BABYLON.Vector2(15,15),
-        new BABYLON.Vector2(15,-15),
-        new BABYLON.Vector2(-15,-15),
-      ]
-      var carresup&#x3D;new BABYLON.PolygonMeshBuilder(&quot;socle2&quot;,corner2,scene);
-      var support&#x3D;carresup.build(null,30);
+      var support &#x3D; BABYLON.MeshBuilder.CreateBox(&quot;socle2&quot;, {height: 30,width:30,depth:30}, scene);
       support.material&#x3D;matsocle;
-      support.position.y&#x3D;30;
+      support.position.y&#x3D;15;
       
-
-
       //horloge
       var faceClock &#x3D; BABYLON.MeshBuilder.CreateCylinder(&quot;clock&quot;, {diameterTop:25, diameterBottom:25, height: 2, tessellation: 96}, scene);
       faceClock.material&#x3D;clockColor;

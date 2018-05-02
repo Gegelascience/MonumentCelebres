@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#xs-components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="xs-components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -95,18 +95,21 @@
                                         <li class="link">
                                             <a href="components/MonumentComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">MonumentComponent</a>
                                         </li>
+                                        <li class="link">
+                                            <a href="components/StatistiquesComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">StatistiquesComponent</a>
+                                        </li>
                                 </ul>
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#xs-injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="xs-injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -258,14 +261,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="components-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -279,18 +282,21 @@
                                         <li class="link">
                                             <a href="components/MonumentComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">MonumentComponent</a>
                                         </li>
+                                        <li class="link">
+                                            <a href="components/StatistiquesComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">StatistiquesComponent</a>
+                                        </li>
                                 </ul>
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        data-target="#injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-2b68ee06-3805-49c5-b9e7-1d6d2b609411"
+                                        id="injectables-links-module-AppModule-971eddf9-2c89-4d17-8eb4-9b0d5ffec9a2"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -602,117 +608,61 @@
         //couleurs
       var matsocle&#x3D;new BABYLON.StandardMaterial(&quot;matsocle1&quot;,scene);
       matsocle.emissiveColor &#x3D;new BABYLON.Color3(205/255,173/255,0/255);
-      
-      matsocle.backFaceCulling &#x3D; false;
+      matsocle.backFaceCulling &#x3D; true;
 
       var matetage&#x3D;new BABYLON.StandardMaterial(&quot;matetage&quot;,scene);
       matetage.emissiveColor &#x3D;new BABYLON.Color3(153/255,153/255,153/255);
-      //matetage.wireframe&#x3D;true;
       matetage.backFaceCulling &#x3D; false;
 
       //socle piliers
-      var corner&#x3D;[
-        new BABYLON.Vector2(-20,20),
-        new BABYLON.Vector2(-20,10),
-        new BABYLON.Vector2(-10,10),
-        new BABYLON.Vector2(-10,20),
-                  ]
-      var carre&#x3D; new BABYLON.PolygonMeshBuilder(&quot;socle1&quot;,corner,scene);
-      var socle1&#x3D;carre.build(null,2);
-      socle1.material&#x3D;matsocle;
-
-      var socle2&#x3D;socle1.createInstance(&quot;socle2&quot;);
-      socle2.position.x&#x3D;30;
       
-      var socle3&#x3D;socle1.createInstance(&quot;socle3&quot;);
-      socle3.position.z&#x3D;-30;
+      var socle1 &#x3D; BABYLON.MeshBuilder.CreateBox(&quot;box&quot;, {height: 2,width:10,depth:10}, scene);
+      socle1.material&#x3D;matsocle;
+      socle1.position.y&#x3D;-1.5;
+      socle1.position.z&#x3D;15;
+      socle1.position.x&#x3D;-15;
 
-      var socle4&#x3D;socle1.createInstance(&quot;socle4&quot;);
-      socle4.position.z&#x3D;-30;
-      socle4.position.x&#x3D;30;
+      var socle2&#x3D;socle1.clone(&quot;socle2&quot;);
+      socle2.position.x&#x3D;15;
+      
+      var socle3&#x3D;socle1.clone(&quot;socle3&quot;);
+      socle3.position.z&#x3D;-15;
 
+      var socle4&#x3D;socle1.clone(&quot;socle4&quot;);
+      socle4.position.z&#x3D;-15;
+      socle4.position.x&#x3D;15;
+
+      var socles&#x3D;BABYLON.Mesh.MergeMeshes([socle1,socle2,socle3,socle4]);
       //piliers socle &#x3D;&gt; 1er étage
-      var piliercorner1&#x3D;[
-        new BABYLON.Vector2(6,0),
-        new BABYLON.Vector2(0,0),
-        new BABYLON.Vector2(6,30),
-        new BABYLON.Vector2(12,30),
-      ]
 
-      var face1Pilier1&#x3D; new BABYLON.PolygonMeshBuilder(&quot;face1p1&quot;,piliercorner1,scene);
+      var pilier1_path&#x3D;new BABYLON.Path2(6, -1.5);
+      pilier1_path.addLineTo(0, -1.5);
+      pilier1_path.addLineTo(6, 28.5);
+      pilier1_path.addLineTo(30, 28.5);
+      pilier1_path.addLineTo(36, -1.5);
+      pilier1_path.addLineTo(30, -1.5);
+      pilier1_path.addLineTo(27, 18.5);
+      pilier1_path.addArcTo(18, 25, 9, 18.5, 50);
+
+      var face1Pilier1&#x3D; new BABYLON.PolygonMeshBuilder(&quot;face1p1&quot;,pilier1_path,scene);
       var f1p1&#x3D;face1Pilier1.build(null,0.1);
-
+      f1p1.material&#x3D;matsocle;
       f1p1.position.x&#x3D;-18;
       f1p1.position.z&#x3D;18;
       f1p1.rotation.x&#x3D;1.37-Math.PI;
-
-      var piliercorner2&#x3D;[
-        new BABYLON.Vector2(0,-6),
-        new BABYLON.Vector2(0,0),
-        new BABYLON.Vector2(30,-6),
-        new BABYLON.Vector2(30,-12),
-      ]
-
-      var face2Pilier1&#x3D; new BABYLON.PolygonMeshBuilder(&quot;face2p1&quot;,piliercorner2,scene);
-      var f2p1&#x3D;face2Pilier1.build(null,0.1);
-
-      f2p1.position.x&#x3D;-18;
-      f2p1.position.z&#x3D;18;
-      f2p1.rotation.z&#x3D;1.37;
-
 
       var f1p2&#x3D;f1p1.createInstance(&quot;face1p2&quot;);
       f1p2.position.x&#x3D;18;
       f1p2.rotation.y&#x3D;Math.PI/2;
 
-      var f2p2&#x3D;f2p1.createInstance(&quot;face2p2&quot;);
-      f2p2.position.x&#x3D;18;
-      f2p2.rotation.y&#x3D;Math.PI/2;
-
       var f1p3&#x3D;f1p1.createInstance(&quot;face1p3&quot;);
       f1p3.position.z&#x3D;-18;
       f1p3.rotation.y&#x3D;-Math.PI/2;
-
-      var f2p3&#x3D;f2p1.createInstance(&quot;face2p3&quot;);
-      f2p3.position.z&#x3D;-18;
-      f2p3.rotation.y&#x3D;-Math.PI/2;
 
       var f1p4&#x3D;f1p1.createInstance(&quot;face1p4&quot;);
       f1p4.position.x&#x3D;18;
       f1p4.position.z&#x3D;-18;
       f1p4.rotation.y&#x3D;Math.PI;
-
-      var f2p4&#x3D;f2p1.createInstance(&quot;face2p4&quot;);
-      f2p4.position.x&#x3D;18;
-      f2p4.position.z&#x3D;-18;
-      f2p4.rotation.y&#x3D;Math.PI;
-
-
-      //arches
-      var arch_path &#x3D; new BABYLON.Path2(15, 9);
-      arch_path.addLineTo(30, 6);
-      arch_path.addLineTo(30, -6);
-      arch_path.addLineTo(15, -9);
-      arch_path.addArcTo(25, 0, 15, 9, 100);
-
-      var arch1 &#x3D; new BABYLON.PolygonMeshBuilder(&quot;arch1&quot;, arch_path, scene);
-      var arch1b &#x3D; arch1.build(false, 0.1); //updatable, extrusion depth - both optional
-      arch1b.position.x&#x3D;-18;
-      arch1b.rotation.z &#x3D;1.37;
-      
-      var arch2b&#x3D;arch1b.createInstance(&quot;arch2&quot;);
-      arch2b.position.x&#x3D;18;
-      arch2b.rotation.y&#x3D;Math.PI;
-
-      var arch3b&#x3D;arch1b.createInstance(&quot;arch3&quot;);
-      arch3b.position.x&#x3D;0;
-      arch3b.position.z&#x3D;18;
-      arch3b.rotation.y&#x3D;Math.PI/2;
-
-      var arch4b&#x3D;arch1b.createInstance(&quot;arch4&quot;);
-      arch4b.position.x&#x3D;0;
-      arch4b.position.z&#x3D;-18;
-      arch4b.rotation.y&#x3D;-Math.PI/2;
 
       //1er étage
       var etage1corner&#x3D;[
@@ -735,32 +685,31 @@
       niveau1.position.y&#x3D;32;
 
       //piliers 1er étage &#x3D;&gt; 2eme étage
-      piliercorner1&#x3D;[
+      var piliercorner1&#x3D;[
         new BABYLON.Vector2(6,0),
         new BABYLON.Vector2(0,0),
         new BABYLON.Vector2(3,20),
-        new BABYLON.Vector2(9,20),
+        new BABYLON.Vector2(9,20)
       ]
 
       var face1pil2lvl2&#x3D; new BABYLON.PolygonMeshBuilder(&quot;face1pil1lvl2&quot;,piliercorner1,scene);
       var f1p1lvl2&#x3D;face1pil2lvl2.build(null,0.1);
       f1p1lvl2.material&#x3D;matsocle;
-
       f1p1lvl2.position.x&#x3D;-12;
       f1p1lvl2.position.z&#x3D;12;
       f1p1lvl2.position.y&#x3D;32;
       f1p1lvl2.rotation.x&#x3D;1.42-Math.PI;
 
-      piliercorner2&#x3D;[
+      var piliercorner2&#x3D;[
         new BABYLON.Vector2(0,-6),
         new BABYLON.Vector2(0,0),
         new BABYLON.Vector2(20,-3),
-        new BABYLON.Vector2(20,-9),
+        new BABYLON.Vector2(20,-9)
       ]
 
       var face2pil2lvl2&#x3D; new BABYLON.PolygonMeshBuilder(&quot;face2pil1lvl2&quot;,piliercorner2,scene);
       var f2p1lvl2&#x3D;face2pil2lvl2.build(null,0.1);
-
+      f2p1lvl2.material&#x3D;matsocle;
       f2p1lvl2.position.x&#x3D;-12;
       f2p1lvl2.position.z&#x3D;12;
       f2p1lvl2.position.y&#x3D;32;
@@ -841,7 +790,7 @@
       f2p3lvl3.position.x&#x3D;0;
       f2p3lvl3.rotation.y&#x3D;-Math.PI/2;
 
-      //2eme étage
+      //3eme étage
       var etage3corner&#x3D;[
         new BABYLON.Vector2(4,4),
         new BABYLON.Vector2(-4,4),
