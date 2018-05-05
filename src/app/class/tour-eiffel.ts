@@ -203,22 +203,14 @@ export class TourEiffel {
       f2p3lvl3.rotation.y=-Math.PI/2;
 
       //3eme étage
-      var etage3corner=[
-        new BABYLON.Vector2(4,4),
-        new BABYLON.Vector2(-4,4),
-        new BABYLON.Vector2(-4,-4),
-        new BABYLON.Vector2(4,-4),
-      ]
-
-      var etage3= new BABYLON.PolygonMeshBuilder("etage3",etage3corner,scene)
-      var niveau3= etage3.build(null,3);
+      var niveau3= BABYLON.MeshBuilder.CreateBox("etage3", {height: 3,width:8,depth:8}, scene);
       niveau3.material=matetage;
-      niveau3.position.y=115;
+      niveau3.position.y=111;
 
       //dome
       var dome = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 6}, scene);
       dome.material=matsocle;
-      dome.position.y=115;
+      dome.position.y=112;
 
       //antenne
       var pointsAntenne=[
@@ -227,6 +219,6 @@ export class TourEiffel {
       ]
       var antenne=BABYLON.MeshBuilder.CreateLines("lines", {points: pointsAntenne}, scene);
       antenne.material=matsocle;
-      antenne.position.y=118;
+      antenne.position.y=113;
     }
 }
