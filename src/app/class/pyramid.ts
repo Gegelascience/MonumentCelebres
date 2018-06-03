@@ -5,6 +5,7 @@
 
 export class Pyramid {
 
+    offset:number=100;
     /**
    * Constructeur par défaut
    */
@@ -40,7 +41,7 @@ export class Pyramid {
             var socle=carre.build(null,2);
             socle.material=pyramidColor;
             socle.position.x=-2*spaceBetween;
-            socle.position.z=-2*spaceBetween;
+            socle.position.z=-2*spaceBetween+this.offset;
             socle.position.y=index*2;
             arrayKheops.push(socle);     
         }
@@ -60,6 +61,7 @@ export class Pyramid {
             var socle=carre.build(null,2);
             socle.material=pyramidColor;
             socle.position.y=index*2;
+            socle.position.z=this.offset;
             arrayKhephren.push(socle);
         }
         var Khephren=BABYLON.Mesh.MergeMeshes(arrayKhephren,true); 
@@ -78,7 +80,7 @@ export class Pyramid {
             var socle=carre.build(null,2);
             socle.material=pyramidColor;
             socle.position.x=2*(spaceBetween-10);
-            socle.position.z=2*(spaceBetween-10);
+            socle.position.z=2*(spaceBetween-10)+this.offset;
             socle.position.y=index*2;
             arrayMykenos.push(socle);
         }

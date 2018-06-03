@@ -5,6 +5,7 @@
 
 export class TourEiffel {
 
+  offset:number=100;
   /**
    * Constructeur par défaut
    */
@@ -31,17 +32,17 @@ export class TourEiffel {
       var socle1 = BABYLON.MeshBuilder.CreateBox("box", {height: 2,width:10,depth:10}, scene);
       socle1.material=matsocle;
       socle1.position.y=-1.5;
-      socle1.position.z=15;
+      socle1.position.z=15+this.offset;
       socle1.position.x=-15;
 
       var socle2=socle1.clone("socle2");
       socle2.position.x=15;
       
       var socle3=socle1.clone("socle3");
-      socle3.position.z=-15;
+      socle3.position.z=-15+this.offset;
 
       var socle4=socle1.clone("socle4");
-      socle4.position.z=-15;
+      socle4.position.z=-15+this.offset;
       socle4.position.x=15;
 
       var socles=BABYLON.Mesh.MergeMeshes([socle1,socle2,socle3,socle4]);
@@ -60,7 +61,7 @@ export class TourEiffel {
       var f1p1=face1Pilier1.build(null,0.1);
       f1p1.material=matsocle;
       f1p1.position.x=-18;
-      f1p1.position.z=18;
+      f1p1.position.z=18+this.offset;
       f1p1.rotation.x=1.37-Math.PI;
 
       var f1p2=f1p1.createInstance("face1p2");
@@ -68,12 +69,12 @@ export class TourEiffel {
       f1p2.rotation.y=Math.PI/2;
 
       var f1p3=f1p1.createInstance("face1p3");
-      f1p3.position.z=-18;
+      f1p3.position.z=-18+this.offset;
       f1p3.rotation.y=-Math.PI/2;
 
       var f1p4=f1p1.createInstance("face1p4");
       f1p4.position.x=18;
-      f1p4.position.z=-18;
+      f1p4.position.z=-18+this.offset;
       f1p4.rotation.y=Math.PI;
 
       //1er étage
@@ -95,6 +96,7 @@ export class TourEiffel {
       var niveau1= etage1.build(null,4);
       niveau1.material=matetage;
       niveau1.position.y=32;
+      niveau1.position.z=this.offset;
 
       //piliers 1er étage => 2eme étage
       var piliercorner1=[
@@ -108,7 +110,7 @@ export class TourEiffel {
       var f1p1lvl2=face1pil2lvl2.build(null,0.1);
       f1p1lvl2.material=matsocle;
       f1p1lvl2.position.x=-12;
-      f1p1lvl2.position.z=12;
+      f1p1lvl2.position.z=12+this.offset;
       f1p1lvl2.position.y=32;
       f1p1lvl2.rotation.x=1.42-Math.PI;
 
@@ -123,7 +125,7 @@ export class TourEiffel {
       var f2p1lvl2=face2pil2lvl2.build(null,0.1);
       f2p1lvl2.material=matsocle;
       f2p1lvl2.position.x=-12;
-      f2p1lvl2.position.z=12;
+      f2p1lvl2.position.z=12+this.offset;
       f2p1lvl2.position.y=32;
       f2p1lvl2.rotation.z=1.42;
 
@@ -137,21 +139,21 @@ export class TourEiffel {
       f2p2lvl2.rotation.y=Math.PI/2;
 
       var f1p3lvl2=f1p1lvl2.createInstance("face1pil3lvl2");
-      f1p3lvl2.position.z=-12;
+      f1p3lvl2.position.z=-12+this.offset;
       f1p3lvl2.rotation.y=-Math.PI/2;
 
       var f2p3lvl2=f2p1lvl2.createInstance("face2pil3lvl2");
-      f2p3lvl2.position.z=-12;
+      f2p3lvl2.position.z=-12+this.offset;
       f2p3lvl2.rotation.y=-Math.PI/2;
 
       var f1p4lvl2=f1p1lvl2.createInstance("face1pil4lvl2");
       f1p4lvl2.position.x=12;
-      f1p4lvl2.position.z=-12;
+      f1p4lvl2.position.z=-12+this.offset;
       f1p4lvl2.rotation.y=Math.PI;
 
       var f2p4lvl2=f2p1lvl2.createInstance("face1pil4lvl2");
       f2p4lvl2.position.x=12;
-      f2p4lvl2.position.z=-12;
+      f2p4lvl2.position.z=-12+this.offset;
       f2p4lvl2.rotation.y=Math.PI;
 
 
@@ -174,6 +176,7 @@ export class TourEiffel {
       var niveau2= etage2.build(null,4);
       niveau2.material=matetage;
       niveau2.position.y=52;
+      niveau2.position.z=this.offset;
 
       //piliers 2eme étage => 3eme étage
       var pilier_path = new BABYLON.Path2(0, 9);
@@ -186,6 +189,7 @@ export class TourEiffel {
       f2p1lvl3.material=matsocle;
       f2p1lvl3.position.x=-9;
       f2p1lvl3.position.y=52;
+      f2p1lvl3.position.z=this.offset;
       f2p1lvl3.rotation.z=1.47;
       
       var f2p2lvl3=f2p1lvl3.createInstance("face1pil2lvl3");
@@ -193,12 +197,12 @@ export class TourEiffel {
       f2p2lvl3.rotation.y=Math.PI;
 
       var f2p3lvl3=f2p1lvl3.createInstance("face1pil3lvl3");
-      f2p3lvl3.position.z=9;
+      f2p3lvl3.position.z=9+this.offset;
       f2p3lvl3.position.x=0;
       f2p3lvl3.rotation.y=Math.PI/2;
 
       var f2p3lvl3=f2p1lvl3.createInstance("face1pil3lvl3");
-      f2p3lvl3.position.z=-9;
+      f2p3lvl3.position.z=-9+this.offset;
       f2p3lvl3.position.x=0;
       f2p3lvl3.rotation.y=-Math.PI/2;
 
@@ -206,11 +210,13 @@ export class TourEiffel {
       var niveau3= BABYLON.MeshBuilder.CreateBox("etage3", {height: 3,width:8,depth:8}, scene);
       niveau3.material=matetage;
       niveau3.position.y=111;
+      niveau3.position.z=this.offset;
 
       //dome
       var dome = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 6}, scene);
       dome.material=matsocle;
       dome.position.y=112;
+      dome.position.z=this.offset;
 
       //antenne
       var pointsAntenne=[
@@ -220,5 +226,6 @@ export class TourEiffel {
       var antenne=BABYLON.MeshBuilder.CreateLines("lines", {points: pointsAntenne}, scene);
       antenne.material=matsocle;
       antenne.position.y=113;
+      antenne.position.z=this.offset;
     }
 }

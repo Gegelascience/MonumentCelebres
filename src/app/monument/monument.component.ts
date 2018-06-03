@@ -120,17 +120,17 @@ export class MonumentComponent implements OnInit {
       
     // Create the scene space
     var scene = new BABYLON.Scene(engine);
-    //var camera = new BABYLON.VRDeviceOrientationArcRotateCamera ("Camera", Math.PI/2, Math.PI/4, 25, new BABYLON.Vector3 (0, 0, 0), scene);
-    var camera = new BABYLON.ArcRotateCamera("Camera", 0, 50, 0, BABYLON.Vector3.Zero(), scene);
-    camera.setPosition(new BABYLON.Vector3(0, 50, -400));
-    camera.attachControl(canvas, false);
+    var vrHelper= scene.createDefaultVRExperience();
 
+    var camPosition=new BABYLON.Vector3(0, 0, 0);
+    var camera = new BABYLON.FreeCamera("Camera",camPosition,scene);
+    camera.attachControl(canvas, true);
 
     
+  
     scene.clearColor=new BABYLON.Color3(0,0,0);
-
-    
     //dessin monument
+    var offset=100;
     Monument.Draw(BABYLON,scene);
 
 
