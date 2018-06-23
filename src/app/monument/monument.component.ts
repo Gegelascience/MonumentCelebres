@@ -128,7 +128,7 @@ export class MonumentComponent implements OnInit {
 
     
   
-    scene.clearColor=new BABYLON.Color3(0,0,0);
+    scene.clearColor=new BABYLON.Color3(240/255,1,1);
     //dessin monument
     var offset=100;
     Monument.Draw(BABYLON,scene);

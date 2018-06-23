@@ -20,11 +20,11 @@ export class TourEiffel {
     public Draw(BABYLON:any,scene:any){
         //couleurs
       var matsocle=new BABYLON.StandardMaterial("matsocle1",scene);
-      matsocle.emissiveColor =new BABYLON.Color3(205/255,173/255,0/255);
+      matsocle.emissiveColor =new BABYLON.Color3(153/255,153/255,153/255);//205 173 0
       matsocle.backFaceCulling = true;
 
       var matetage=new BABYLON.StandardMaterial("matetage",scene);
-      matetage.emissiveColor =new BABYLON.Color3(153/255,153/255,153/255);
+      matetage.emissiveColor =new BABYLON.Color3(64/255,64/255,64/255);
       matetage.backFaceCulling = false;
 
       //socle piliers
@@ -214,7 +214,7 @@ export class TourEiffel {
 
       //dome
       var dome = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 6}, scene);
-      dome.material=matsocle;
+      dome.material=matetage;
       dome.position.y=112;
       dome.position.z=this.offset;
 
@@ -223,8 +223,8 @@ export class TourEiffel {
         new BABYLON.Vector3(0,10,0),
         new BABYLON.Vector3(0,0,0)
       ]
-      var antenne=BABYLON.MeshBuilder.CreateLines("lines", {points: pointsAntenne}, scene);
-      antenne.material=matsocle;
+      var lineColor=[new BABYLON.Color4(64/255,64/255,64/255,1),new BABYLON.Color4(64/255,64/255,64/255,1),new BABYLON.Color4(64/255,64/255,64/255,1)];
+      var antenne=BABYLON.MeshBuilder.CreateLines("lines", {points: pointsAntenne, colors:lineColor}, scene);
       antenne.position.y=113;
       antenne.position.z=this.offset;
     }

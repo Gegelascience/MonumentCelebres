@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        data-target="#xs-components-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        id="xs-components-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -102,14 +102,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        data-target="#xs-injectables-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        id="xs-injectables-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -261,14 +261,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        data-target="#components-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        id="components-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -289,14 +289,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        data-target="#injectables-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-bc36f3d0-5fc9-43cc-980c-cca3f0eb7f23"
+                                        id="injectables-links-module-AppModule-ef01916d-2183-4459-9046-bb8421ade1d1"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -667,11 +667,11 @@
     public Draw(BABYLON:any,scene:any){
         //couleurs
       var matsocle&#x3D;new BABYLON.StandardMaterial(&quot;matsocle1&quot;,scene);
-      matsocle.emissiveColor &#x3D;new BABYLON.Color3(205/255,173/255,0/255);
+      matsocle.emissiveColor &#x3D;new BABYLON.Color3(153/255,153/255,153/255);//205 173 0
       matsocle.backFaceCulling &#x3D; true;
 
       var matetage&#x3D;new BABYLON.StandardMaterial(&quot;matetage&quot;,scene);
-      matetage.emissiveColor &#x3D;new BABYLON.Color3(153/255,153/255,153/255);
+      matetage.emissiveColor &#x3D;new BABYLON.Color3(64/255,64/255,64/255);
       matetage.backFaceCulling &#x3D; false;
 
       //socle piliers
@@ -861,7 +861,7 @@
 
       //dome
       var dome &#x3D; BABYLON.MeshBuilder.CreateSphere(&quot;sphere&quot;, {diameter: 6}, scene);
-      dome.material&#x3D;matsocle;
+      dome.material&#x3D;matetage;
       dome.position.y&#x3D;112;
       dome.position.z&#x3D;this.offset;
 
@@ -870,8 +870,8 @@
         new BABYLON.Vector3(0,10,0),
         new BABYLON.Vector3(0,0,0)
       ]
-      var antenne&#x3D;BABYLON.MeshBuilder.CreateLines(&quot;lines&quot;, {points: pointsAntenne}, scene);
-      antenne.material&#x3D;matsocle;
+      var lineColor&#x3D;[new BABYLON.Color4(64/255,64/255,64/255,1),new BABYLON.Color4(64/255,64/255,64/255,1),new BABYLON.Color4(64/255,64/255,64/255,1)];
+      var antenne&#x3D;BABYLON.MeshBuilder.CreateLines(&quot;lines&quot;, {points: pointsAntenne, colors:lineColor}, scene);
       antenne.position.y&#x3D;113;
       antenne.position.z&#x3D;this.offset;
     }
