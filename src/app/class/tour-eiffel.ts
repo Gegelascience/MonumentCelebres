@@ -1,4 +1,3 @@
-
 /**
  * Classe de la Tour Eiffel
  */
@@ -159,10 +158,10 @@ export class TourEiffel {
 
       //2eme étage
       var etage2corner=[
-        new BABYLON.Vector2(10,10),
-        new BABYLON.Vector2(-10,10),
-        new BABYLON.Vector2(-10,-10),
-        new BABYLON.Vector2(10,-10),
+        new BABYLON.Vector2(11,11),
+        new BABYLON.Vector2(-11,11),
+        new BABYLON.Vector2(-11,-11),
+        new BABYLON.Vector2(11,-11),
       ]
 
       var hole=[

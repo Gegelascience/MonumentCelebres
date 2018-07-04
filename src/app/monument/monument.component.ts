@@ -4,12 +4,8 @@ import {ActivatedRoute, Params} from '@angular/router';
 import { Pyramid } from '../class/pyramid';
 import {BigBen} from '../class/big-ben';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
+import * as BABYLON from 'babylonjs'
 
-/**
- * Variable d'export de BabylonJS
- */
-
-declare var BABYLON:any;
 
 /**
  * Page affichant un monument en 3d et ses détails
@@ -71,7 +67,7 @@ export class MonumentComponent implements OnInit {
     });
    
 
-    var canvas = document.getElementById("renderCanvas");
+    var canvas = <HTMLCanvasElement>document.getElementById("renderCanvas");
     var engine = new BABYLON.Engine(canvas, true); 
 
     
@@ -128,7 +124,7 @@ export class MonumentComponent implements OnInit {
 
     
   
-    scene.clearColor=new BABYLON.Color3(240/255,1,1);
+    scene.clearColor=new BABYLON.Color4(240/255,1,1,1);
     //dessin monument
     var offset=100;
     Monument.Draw(BABYLON,scene);
