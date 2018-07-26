@@ -11,6 +11,7 @@ import { MonumentComponent } from './monument/monument.component';
 import {InfosMonumenttService} from './services/infos-monumentt.service'
 import { D3Service } from 'd3-ng2-service';
 import { StatistiquesComponent } from './statistiques/statistiques.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 const appRoutes: Routes = [
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     AccueilComponent,
     PageNotFoundComponent,
     MonumentComponent,
-    StatistiquesComponent
+    StatistiquesComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

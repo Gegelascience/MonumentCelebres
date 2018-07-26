@@ -3,18 +3,24 @@
     "nom":"Tour Eiffel",
     "description":"Tour de fer puddlé construite en 1887. Symbole de la capitale française, elle est le monument payant le plus visité du monde.",
     "hauteur":324,
+    "longitude":2.298087500000065,
+    "latitude":48.85589859999999,
     "pays":"France"
 },
 {
     "nom":"Pyramides de Gizeh",
     "description":"Dernière merveille du monde antique encore debout. Comprend les pyramides de Khéops, Khéphren et Mykérinos. Khéops est la plus grande (dimensions ci-dessous).",
     "hauteur":146.58,
+    "longitude":31.132495500000005,
+    "latitude":29.9772962,
     "pays":"Egypte"
 },
 {
     "nom":"Big Ben",
     "description":"Cloche de 13.5 tonnes, elle est le symbole de Londres. Sa visite n'est possible que pour les habitants du Royaume-Uni.",
     "hauteur":96,
+    "longitude":-0.12462540000001354,
+    "latitude":51.50072919999999,
     "pays":"Royaume-Uni"
 }
 ]

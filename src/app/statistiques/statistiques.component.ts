@@ -1,20 +1,22 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
 import {D3Service,D3,Selection} from 'd3-ng2-service';
-import {Map,View,Feature} from 'ol';
+import {Map,View,Feature,Overlay} from 'ol';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import OSM from 'ol/source/OSM';
-import {fromLonLat} from 'ol/proj.js';
+import {fromLonLat,toLonLat} from 'ol/proj.js';
 import { Point } from "ol/geom";
 import { Icon,Style } from "ol/style";
 import VectorSource from 'ol/source/Vector.js';
+import {toStringHDMS} from 'ol/coordinate.js';
+import { and } from '../../../node_modules/@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-statistiques',
   templateUrl: './statistiques.component.html',
   styleUrls: ['./statistiques.component.css']
 })
-export class StatistiquesComponent implements OnInit {
+export class StatistiquesComponent implements OnInit,OnDestroy {
 
   private d3: D3;
   private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
@@ -26,6 +28,8 @@ export class StatistiquesComponent implements OnInit {
       "nom":"Tour Eiffel",
       "description":"Tour de fer puddlé construite en 1887. Symbole de la capitale française, elle est le monument payant le plus visité du monde.",
       "hauteur":324,
+      "longitude":2.298087500000065,
+      "latitude":48.85589859999999,
       "pays":"France"
     }
   ];
@@ -111,19 +115,48 @@ export class StatistiquesComponent implements OnInit {
    *Dessin de la carte des monuments
    */
   DrawMap(){
+    //centre de la map
     var centerMap=fromLonLat([2.287592000000018,40.862725 ]);
-    var london = new Feature({
-      type: 'icon',
-      geometry: new Point(fromLonLat([-0.12755, 51.507222]))
+    //dessin des markers
+    var markers=[];
+    for (let index = 0; index < this.evol.length; index++) {
+      var tmp = new Feature({
+        type: 'icon',
+        geometry: new Point(fromLonLat([this.evol[index].longitude, this.evol[index].latitude])),
+        name:this.evol[index].nom
+      });
+      markers.push(tmp);
+      
+    }
+    /**
+    * Elements that make up the popup.
+    */
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+    var closer = document.getElementById('popup-closer');
+
+    /**
+     * Create an overlay to anchor the popup to the map.
+     */
+    var overlay = new Overlay({
+      element: container,
+      autoPan: true,
+      autoPanAnimation: {
+        duration: 250
+      }
     });
-    var paris = new Feature({
-      type: 'icon',
-      geometry: new Point(fromLonLat([2.287592000000018, 48.862725]))
-    });
-    var gizeh = new Feature({
-      type: 'icon',
-      geometry: new Point(fromLonLat([31.132495500000005, 29.9772962]))
-    });
+
+
+    /**
+     * Add a click handler to hide the popup.
+     * @return {boolean} Don't follow the href.
+      */
+    closer.onclick = function() {
+      overlay.setPosition(undefined);
+      closer.blur();
+      return false;
+    };
+
     var style={
       'icon': new Style({
         image: new Icon({
@@ -134,13 +167,14 @@ export class StatistiquesComponent implements OnInit {
     };
     var vectorLayer = new VectorLayer({
       source: new VectorSource({
-        features: [london, paris, gizeh]
+        features: markers
       }),
       style: function(feature) {
         
         return style[feature.get('type')];
       }
     });
+    //dessin de la carte
     var map = new Map({
       target: 'map',
       layers: [
@@ -151,11 +185,37 @@ export class StatistiquesComponent implements OnInit {
         }),
         vectorLayer
       ],
+      overlays:[overlay],
       view: new View({
         center: centerMap,
         zoom: 4
       })
     });
+
+     /**
+      * Add a click handler to the map to render the popup.
+     */
+    map.on('singleclick', function(evt) {
+      var coordinate = evt.coordinate;
+      var coordClick;
+      var infoPopup;
+      var lonlat = toLonLat(coordinate);
+      for (let index = 0; index < markers.length; index++) {
+        coordClick=toLonLat(markers[index].values_.geometry.flatCoordinates);
+        if (lonlat[1]>=coordClick[1] && lonlat[1]-coordClick[1]<=1.2) {
+          if (Math.abs(lonlat[0]-coordClick[0])<0.8) {
+            infoPopup=markers[index].values_.name;
+            content.innerHTML = '<p>'+ infoPopup +'</p>';
+            overlay.setPosition(coordinate);
+            break;
+          }
+        }
+        
+      }
+
+      
+    });
+
   }
 
 }

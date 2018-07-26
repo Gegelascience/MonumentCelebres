@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #Présentation
 
-Ce projet représente grâce à babylon.js des monuments célèbres en 3D.
+Ce projet représente grâce à babylon.js des monuments célèbres en 3D. Version 4 d'angular
 
 
 #Installation
