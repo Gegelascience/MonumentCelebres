@@ -63,7 +63,9 @@ export class MonumentComponent implements OnInit {
     var temp:any;
     this.info.getInfoMonument()
     .subscribe(data=>{
-      this.details=data[this.choixInfo];
+      console.log(data.json());
+      temp=data.json();
+      this.details=temp[this.choixInfo];
     });
    
 

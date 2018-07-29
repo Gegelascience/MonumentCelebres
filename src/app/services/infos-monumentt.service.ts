@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Http,Response} from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Http } from "@angular/http";
+
 
 /**
  * Service pour récupérer les détails d'un monument
@@ -13,7 +13,7 @@ export class InfosMonumenttService {
    * url du fichier json
    */
   
-  private _url:string='./assets/infos.json';
+  private _url:string='./src/assets/infos.json';
 
   /**
    * Constructeur important le module http
@@ -27,10 +27,6 @@ export class InfosMonumenttService {
 
   getInfoMonument(){
     return this.http.get(this._url)
-    .map( (response: Response) => {
-      const data = response.json();
-      return data;
-   });
-  }
-
+   };
 }
+

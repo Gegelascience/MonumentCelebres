@@ -9,7 +9,7 @@ import { Point } from "ol/geom";
 import { Icon,Style } from "ol/style";
 import VectorSource from 'ol/source/Vector.js';
 import {toStringHDMS} from 'ol/coordinate.js';
-import { and } from '../../../node_modules/@angular/router/src/utils/collection';
+
 
 @Component({
   selector: 'app-statistiques',
@@ -23,16 +23,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
   /**
    * exemple type de données
    */
-  private evol=[
-    {
-      "nom":"Tour Eiffel",
-      "description":"Tour de fer puddlé construite en 1887. Symbole de la capitale française, elle est le monument payant le plus visité du monde.",
-      "hauteur":324,
-      "longitude":2.298087500000065,
-      "latitude":48.85589859999999,
-      "pays":"France"
-    }
-  ];
+  private evol:any[]=[];
 
   /**
    * initialisation des services
@@ -50,10 +41,9 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
  * initialisation des données et dessin des statistiques 
  */
   ngOnInit() {
-    var temp:any;
     this.info.getInfoMonument()
     .subscribe(data=>{
-      this.evol=data;
+      this.evol=data.json();
       this.DrawCharHeight();
       this.DrawMap();
     });
