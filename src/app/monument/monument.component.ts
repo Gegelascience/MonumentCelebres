@@ -63,7 +63,6 @@ export class MonumentComponent implements OnInit {
     var temp:any;
     this.info.getInfoMonument()
     .subscribe(data=>{
-      console.log(data.json());
       temp=data.json();
       this.details=temp[this.choixInfo];
     });
@@ -91,15 +90,15 @@ export class MonumentComponent implements OnInit {
    */
 
   chooseMonument(name:string){
-    if (name=="eiffel"){
+    if (name=="0"){
       this.choixInfo=0;
       return new TourEiffel;
     }
-    else if (name=="pyramid") {
+    else if (name=="1") {
       this.choixInfo=1;
       return new Pyramid;
     }
-    else if (name=="bigben") {
+    else if (name=="2") {
       this.choixInfo=2;
       return new BigBen;
     }

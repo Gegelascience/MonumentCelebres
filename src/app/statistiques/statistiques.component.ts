@@ -1,13 +1,7 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
 import {D3Service,D3,Selection} from 'd3-ng2-service';
-import {Map,View,Feature,Overlay} from 'ol';
-import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
-import OSM from 'ol/source/OSM';
-import {fromLonLat,toLonLat} from 'ol/proj.js';
-import { Point } from "ol/geom";
-import { Icon,Style } from "ol/style";
-import VectorSource from 'ol/source/Vector.js';
+
 
 
 @Component({
@@ -48,7 +42,6 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     .subscribe(data=>{
       this.data=data.json();
       this.DrawCharHeight();
-      this.DrawMap();
     });
   }
 
@@ -104,100 +97,6 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       .attr("height", function(d) { return height - y(d.hauteur); });
   }
 
-  /**
-   *Dessin de la carte des monuments
-   */
-  DrawMap(){
-    //centre de la map
-    var centerMap=fromLonLat([2.287592000000018,40.862725 ]);
-    //dessin des markers
-    var markers=[];
-    for (let index = 0; index < this.data.length; index++) {
-      var tmp = new Feature({
-        type: 'icon',
-        geometry: new Point(fromLonLat([this.data[index].longitude, this.data[index].latitude])),
-        name:this.data[index].nom
-      });
-      markers.push(tmp);
-      
-    }
-    /**
-    * Elements that make up the popup.
-    */
-    var container = document.getElementById('popup');
-    var content = document.getElementById('popup-content');
-    var closer = document.getElementById('popup-closer');
-
-    /**
-     * Create an overlay to anchor the popup to the map.
-     */
-    var overlay = new Overlay({
-      element: container,
-      autoPan: true,
-      autoPanAnimation: {
-        duration: 250
-      }
-    });
-
-
-    /**
-     * Add a click handler to hide the popup.
-     * @return {boolean} Don't follow the href.
-      */
-    closer.onclick = function() {
-      overlay.setPosition(undefined);
-      closer.blur();
-      return false;
-    };
-
-    var style={
-      'icon': new Style({
-        image: new Icon({
-          anchor: [0.5, 1],
-          src: 'assets/marker.png'
-        })
-      }),
-    };
-    var vectorLayer = new VectorLayer({
-      source: new VectorSource({
-        features: markers
-      }),
-      style: function(feature) {
-        
-        return style[feature.get('type')];
-      }
-    });
-    //dessin de la carte
-    var map = new Map({
-      target: 'map',
-      layers: [
-        new TileLayer({
-          source: new OSM({
-            
-          })
-        }),
-        vectorLayer
-      ],
-      overlays:[overlay],
-      view: new View({
-        center: centerMap,
-        zoom: 4
-      })
-    });
-
-     /**
-      * Add a click handler to the map to render the popup.
-     */
-    map.on('singleclick', function(evt) {
-      var coordinate = evt.coordinate;
-      var hasMarker=map.hasFeatureAtPixel(evt.pixel);
-      if (hasMarker) {
-        var marker=map.getFeaturesAtPixel(evt.pixel);
-        content.innerHTML = '<h4>'+ marker[0].values_.name +'</h4>';
-        overlay.setPosition(coordinate);
-      }
-    });
-
-  }
+  
 
 }
