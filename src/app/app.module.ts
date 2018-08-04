@@ -13,6 +13,7 @@ import { D3Service } from 'd3-ng2-service';
 import { StatistiquesComponent } from './statistiques/statistiques.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+import { AgGridModule } from 'ag-grid-angular';
 
 const appRoutes: Routes = [
   {path:'accueil', component: AccueilComponent},
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgGridModule.withComponents([])
   ],
   providers: [InfosMonumenttService,D3Service],
   bootstrap: [AppComponent]

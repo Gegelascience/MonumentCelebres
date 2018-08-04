@@ -1,7 +1,20 @@
+
+<ag-grid-angular 
+
+class="ag-theme-balham "
+id="myGrid"
+[enableSorting]="true"
+[enableFilter]="true"
+[rowData]="rowData" 
+[columnDefs]="columnDefs"
+[animateRows]="true"
+[rowSelection]="rowSelection"
+(gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>
 <div class=" text-center">
     <h5>
-      Comparaison des hauteurs (mètres)
+      Comparaison des hauteurs (m)
     </h5>
-    <svg id="hauteur" class=""></svg>
-    
+    <svg id="hauteur" class=""></svg> 
 </div>

@@ -4,12 +4,24 @@ import {D3Service,D3,Selection} from 'd3-ng2-service';
 
 
 
+
 @Component({
   selector: 'app-statistiques',
   templateUrl: './statistiques.component.html',
   styleUrls: ['./statistiques.component.css']
 })
 export class StatistiquesComponent implements OnInit,OnDestroy {
+
+  private gridApi;
+  private gridColumnApi;
+
+  private columnDefs = [
+    {headerName: 'Monument', field: 'monument' },
+    {headerName: 'Pays', field: 'pays' },
+    {headerName: 'Hauteur (m)', field: 'hauteur'}
+  ];
+
+  private rowData:any[];
 
   /**
    * Variables D3js
@@ -42,6 +54,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     .subscribe(data=>{
       this.data=data.json();
       this.DrawCharHeight();
+      this.fillTab();
     });
   }
 
@@ -95,6 +108,25 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       .attr("width", x.bandwidth)
       .attr("y", function(d) { return y(d.hauteur); })
       .attr("height", function(d) { return height - y(d.hauteur); });
+  }
+
+
+  fillTab(){
+
+    for (let index = 0; index < this.data.length; index++) {
+      var newData={
+        monument :this.data[index].nom, 
+        pays:this.data[index].pays,
+        hauteur:this.data[index].hauteur
+      }
+      var res=this.gridApi.updateRowData({add:[newData]});
+      
+    }
+  }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
   }
 
   

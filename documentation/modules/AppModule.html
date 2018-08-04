@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        data-target="#xs-components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        id="xs-components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -105,14 +105,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        data-target="#xs-injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        id="xs-injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -280,14 +280,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        data-target="#components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        id="components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -311,14 +311,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        data-target="#injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-27781f21-a75e-46f4-82db-06160204943c"
+                                        id="injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -679,6 +679,7 @@ import { D3Service } from &#x27;d3-ng2-service&#x27;;
 import { StatistiquesComponent } from &#x27;./statistiques/statistiques.component&#x27;;
 import { NavigationComponent } from &#x27;./navigation/navigation.component&#x27;;
 
+import { AgGridModule } from &#x27;ag-grid-angular&#x27;;
 
 const appRoutes: Routes &#x3D; [
   {path:&#x27;accueil&#x27;, component: AccueilComponent},
@@ -704,7 +705,8 @@ const appRoutes: Routes &#x3D; [
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgGridModule.withComponents([])
   ],
   providers: [InfosMonumenttService,D3Service],
   bootstrap: [AppComponent]
