@@ -4,7 +4,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import { Pyramid } from '../class/pyramid';
 import {BigBen} from '../class/big-ben';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
-import * as BABYLON from 'babylonjs'
+import * as BABYLON from '../../assets/script/babylon.custom.js'
 
 
 /**

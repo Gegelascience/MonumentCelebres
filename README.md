@@ -1,6 +1,6 @@
 # WellKnowMonuments
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
+Ce projet a été généré avec [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
 #Présentation
 

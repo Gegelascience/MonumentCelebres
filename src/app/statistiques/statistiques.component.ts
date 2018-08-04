@@ -8,7 +8,6 @@ import {fromLonLat,toLonLat} from 'ol/proj.js';
 import { Point } from "ol/geom";
 import { Icon,Style } from "ol/style";
 import VectorSource from 'ol/source/Vector.js';
-import {toStringHDMS} from 'ol/coordinate.js';
 
 
 @Component({
@@ -18,13 +17,17 @@ import {toStringHDMS} from 'ol/coordinate.js';
 })
 export class StatistiquesComponent implements OnInit,OnDestroy {
 
+  /**
+   * Variables D3js
+   */
   private d3: D3;
   private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
   /**
-   * exemple type de données
+   * Données
    */
-  private evol:any[]=[];
+  private data:any[]=[];
 
+  
   /**
    * initialisation des services
    */
@@ -43,7 +46,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
   ngOnInit() {
     this.info.getInfoMonument()
     .subscribe(data=>{
-      this.evol=data.json();
+      this.data=data.json();
       this.DrawCharHeight();
       this.DrawMap();
     });
@@ -66,8 +69,8 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       .attr('class', 'bar')
       .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    let xDomain = this.evol.map(d => d.nom);
-    let yDomain = [0, this.d3.max(this.evol, d=> d.hauteur)];
+    let xDomain = this.data.map(d => d.nom);
+    let yDomain = [0, this.d3.max(this.data, d=> d.hauteur)];
 
     let x = this.d3.scaleBand()
             .domain(xDomain)
@@ -91,7 +94,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       .call(this.d3.axisLeft(y));
 
     svg.selectAll("bar")
-      .data(this.evol)
+      .data(this.data)
       .enter().append("rect")
       .attr("class", "bar")
       .attr("fill","#28a745")
@@ -109,11 +112,11 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     var centerMap=fromLonLat([2.287592000000018,40.862725 ]);
     //dessin des markers
     var markers=[];
-    for (let index = 0; index < this.evol.length; index++) {
+    for (let index = 0; index < this.data.length; index++) {
       var tmp = new Feature({
         type: 'icon',
-        geometry: new Point(fromLonLat([this.evol[index].longitude, this.evol[index].latitude])),
-        name:this.evol[index].nom
+        geometry: new Point(fromLonLat([this.data[index].longitude, this.data[index].latitude])),
+        name:this.data[index].nom
       });
       markers.push(tmp);
       
@@ -187,23 +190,12 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
      */
     map.on('singleclick', function(evt) {
       var coordinate = evt.coordinate;
-      var coordClick;
-      var infoPopup;
-      var lonlat = toLonLat(coordinate);
-      for (let index = 0; index < markers.length; index++) {
-        coordClick=toLonLat(markers[index].values_.geometry.flatCoordinates);
-        if (lonlat[1]>=coordClick[1] && lonlat[1]-coordClick[1]<=1.2) {
-          if (Math.abs(lonlat[0]-coordClick[0])<0.8) {
-            infoPopup=markers[index].values_.name;
-            content.innerHTML = '<p>'+ infoPopup +'</p>';
-            overlay.setPosition(coordinate);
-            break;
-          }
-        }
-        
+      var hasMarker=map.hasFeatureAtPixel(evt.pixel);
+      if (hasMarker) {
+        var marker=map.getFeaturesAtPixel(evt.pixel);
+        content.innerHTML = '<h4>'+ marker[0].values_.name +'</h4>';
+        overlay.setPosition(coordinate);
       }
-
-      
     });
 
   }
