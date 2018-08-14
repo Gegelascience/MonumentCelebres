@@ -131,7 +131,7 @@ export class AccueilComponent implements OnInit {
       var hasMarker=map.hasFeatureAtPixel(evt.pixel);
       if (hasMarker) {
         var marker=map.getFeaturesAtPixel(evt.pixel);
-        content.innerHTML = "<a href='monument/"+marker[0].values_.id+"'>"+ marker[0].values_.name +"</a>";
+        content.innerHTML = "<a href='/monument/"+marker[0].values_.id+"'>"+ marker[0].values_.name +"</a>";
         overlay.setPosition(coordinate);
       }
     });
