@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
 import {HttpModule} from '@angular/http'
 
 import { AppComponent } from './app.component';
@@ -15,16 +15,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { AgGridModule } from 'ag-grid-angular';
 
-const appRoutes: Routes = [
-  {path:'accueil', component: AccueilComponent},
-  {path:'stat',component:StatistiquesComponent},
-  {path: 'monument/:name', component: MonumentComponent },
-  { path: '',
-    redirectTo: '/accueil',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }
-];
+import {RouteModule} from './route/route.module';
+
 
 
 @NgModule({
@@ -39,7 +31,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    RouteModule,
     AgGridModule.withComponents([])
   ],
   providers: [InfosMonumenttService,D3Service],
