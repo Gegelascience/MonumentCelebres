@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        data-target="#xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        id="xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -105,20 +105,23 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        data-target="#xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        id="xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
                                         </li>
                                 </ul>
                             </li>
+                    </li>
+                    <li class="link">
+                        <a href="modules/RouteModule.html" data-type="entity-link">RouteModule</a>
                     </li>
             </ul>
         </li>
@@ -280,14 +283,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        data-target="#components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        id="components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -311,20 +314,23 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        data-target="#injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-3989d765-03e7-4f37-a1c4-05be443b192c"
+                                        id="injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
                                         </li>
                                 </ul>
                             </li>
+                    </li>
+                    <li class="link">
+                        <a href="modules/RouteModule.html" data-type="entity-link">RouteModule</a>
                     </li>
             </ul>
         </li>
@@ -1166,7 +1172,16 @@ export class MonumentComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade" id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;canvas class&#x3D;&quot;container-fluid&quot; id&#x3D;&quot;renderCanvas&quot; touch-action&#x3D;&quot;none&quot;&gt;&lt;/canvas&gt; 
+        <pre class="line-numbers"><code class="language-html">
+&lt;div class&#x3D;&quot;card text-center w-100 p-3 border-success mb-3&quot; style&#x3D;&quot;width: 18rem;&quot;&gt;
+  &lt;div class&#x3D;&quot;card-body&quot;&gt;
+    &lt;h5 class&#x3D;&quot;card-title&quot;&gt;Monument&lt;/h5&gt;
+    &lt;p class&#x3D;&quot;card-text&quot;&gt;{{details.nom}}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;canvas class&#x3D;&quot;container-fluid&quot; id&#x3D;&quot;renderCanvas&quot; touch-action&#x3D;&quot;none&quot;&gt;&lt;/canvas&gt; 
+
 &lt;div class&#x3D;&quot;card w-100 mb-3 border-success&quot; p-3&gt;
   &lt;div class&#x3D;&quot;card-header text-center bg-success text-white&quot;&gt;
     &lt;h3 class&#x3D;&quot;card-title&quot;&gt;Détails&lt;/h3&gt;
@@ -1204,7 +1219,7 @@ export class MonumentComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><canvas class="container-fluid" id="renderCanvas" touch-action="none"></canvas> <div class="card w-100 mb-3 border-success" p-3>  <div class="card-header text-center bg-success text-white">    <h3 class="card-title">Détails</h3>  </div>  <div class="card-body">    <p class="card-text"> Description : {{details.description}}</p>  </div>  <ul class="list-group list-group-flush ">    <li class="list-group-item border-success">Hauteur : {{details.hauteur}} mètres</li>    <li class="list-group-item border-success">Pays : {{details.pays}}</li>  </ul></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card text-center w-100 p-3 border-success mb-3" style="width: 18rem;">  <div class="card-body">    <h5 class="card-title">Monument</h5>    <p class="card-text">{{details.nom}}</p>  </div></div><canvas class="container-fluid" id="renderCanvas" touch-action="none"></canvas> <div class="card w-100 mb-3 border-success" p-3>  <div class="card-header text-center bg-success text-white">    <h3 class="card-title">Détails</h3>  </div>  <div class="card-body">    <p class="card-text"> Description : {{details.description}}</p>  </div>  <ul class="list-group list-group-flush ">    <li class="list-group-item border-success">Hauteur : {{details.hauteur}} mètres</li>    <li class="list-group-item border-success">Pays : {{details.pays}}</li>  </ul></div></div>'
     var COMPONENTS = [{'name': 'AccueilComponent', 'selector': 'app-accueil'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MonumentComponent', 'selector': 'app-monument'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'StatistiquesComponent', 'selector': 'app-statistiques'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MonumentComponent'};
