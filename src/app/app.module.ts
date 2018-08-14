@@ -16,8 +16,13 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AgGridModule } from 'ag-grid-angular';
 
 import {RouteModule} from './route/route.module';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { TranslateModule,TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-
+export function createTranslateLoader(http:HttpClient) {
+  return new TranslateHttpLoader(http,'./assets/i18n/','.json');
+}
 
 @NgModule({
   declarations: [
@@ -31,6 +36,14 @@ import {RouteModule} from './route/route.module';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:(createTranslateLoader),
+        deps:[HttpClient]
+      }
+    }),
     RouteModule,
     AgGridModule.withComponents([])
   ],

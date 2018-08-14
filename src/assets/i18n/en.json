@@ -1,0 +1,16 @@
+{
+    "TITLE":"Well-known Monuments",
+    "HOME":"Home",
+    "STAT":"Statistics",
+    "LANGUAGE":"Languages",
+    "COMPARE":"Heights comparison (m)",
+    "WELCOME":"Welcome",
+    "INTRO":"This site represent some well-known monuments in 3D.",
+    "PLACE":"Location of monuments",
+    "ERROR":"Error 404",
+    "REASON":"Page not found",
+    "DETAILS":"Details",
+    "HEIGHT":"Height",
+    "METER":"meters",
+    "COUNTRY":"Country"
+}
