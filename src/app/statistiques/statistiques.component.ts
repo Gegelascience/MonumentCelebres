@@ -117,7 +117,6 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
         hauteur:this.data[index].hauteur
       }
       var res=this.gridApi.updateRowData({add:[newData]});
-      console.log(res);
       
     }
   }
