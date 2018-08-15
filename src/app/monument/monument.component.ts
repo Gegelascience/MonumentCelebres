@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TourEiffel } from '../class/tour-eiffel';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params,Router} from '@angular/router';
 import { Pyramid } from '../class/pyramid';
 import {BigBen} from '../class/big-ben';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
@@ -16,7 +16,7 @@ import * as BABYLON from '../../assets/script/babylon.custom.js'
   templateUrl: './monument.component.html',
   styleUrls: ['./monument.component.css']
 })
-export class MonumentComponent implements OnInit {
+export class MonumentComponent implements OnInit, OnDestroy {
 
   /**
    * Monument à afficher
@@ -43,10 +43,16 @@ export class MonumentComponent implements OnInit {
   details:any=[];
 
   /**
+   * Gestion VR
+   */
+  vrHelper:any;
+
+
+  /**
    * Constructeur du component monument
    */
 
-  constructor(private route: ActivatedRoute, private info:InfosMonumenttService ) {
+  constructor(private route: ActivatedRoute, private info:InfosMonumenttService,private router: Router ) {
     this.route.params.forEach((params: Params) => {
       this.monumentName=params['name'];
       this.Monument=this.chooseMonument(this.monumentName)
@@ -75,6 +81,7 @@ export class MonumentComponent implements OnInit {
 
     var scene = this.createMonument(this.Monument,canvas,engine); //Call the createScene function
 
+    var context=this;
     engine.runRenderLoop(function () { // Register a render loop to repeatedly render the scene
           scene.render();
     });
@@ -103,7 +110,8 @@ export class MonumentComponent implements OnInit {
       return new BigBen;
     }
     else{
-      window.location.pathname="/error";
+      this.router.navigateByUrl("/error");
+      
     }
   }
 
@@ -117,7 +125,7 @@ export class MonumentComponent implements OnInit {
       
     // Create the scene space
     var scene = new BABYLON.Scene(engine);
-    var vrHelper= scene.createDefaultVRExperience();
+    this.vrHelper= scene.createDefaultVRExperience();
 
     var camPosition=new BABYLON.Vector3(0, 0, 0);
     var camera = new BABYLON.FreeCamera("Camera",camPosition,scene);
@@ -133,5 +141,12 @@ export class MonumentComponent implements OnInit {
 
     return scene;
   };
+
+  ngOnDestroy(){
+    if(this.vrHelper!=null){
+      this.vrHelper.dispose();
+    }
+    
+  }
 
 }

@@ -42,9 +42,6 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
    }
 
    ngOnDestroy() {
-    /*if (this.d3Svg.empty && !this.d3Svg.empty()) {
-      this.d3Svg.selectAll('*').remove();
-    }*/
   }
 /**
  * initialisation des données et dessin des statistiques 
@@ -120,6 +117,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
         hauteur:this.data[index].hauteur
       }
       var res=this.gridApi.updateRowData({add:[newData]});
+      console.log(res);
       
     }
   }

@@ -13,7 +13,7 @@ export class InfosMonumenttService {
    * url du fichier json
    */
   
-  private _url:string='./src/assets/infos.json';
+  private _url:string='./src/assets/data/infos.json';
 
   /**
    * Constructeur important le module http

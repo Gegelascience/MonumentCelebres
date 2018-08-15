@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import {Map,View,Feature,Overlay} from 'ol';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import OSM from 'ol/source/OSM';
@@ -26,7 +27,13 @@ export class AccueilComponent implements OnInit {
   /**
   * constructeur par défaut
   */
-  constructor(private info:InfosMonumenttService) { 
+
+  /**
+   * carte des emplacements
+   */
+  private map;
+
+  constructor(private info:InfosMonumenttService,private router:Router) { 
     
   }
 
@@ -106,7 +113,7 @@ export class AccueilComponent implements OnInit {
       }
     });
     //dessin de la carte
-    var map = new Map({
+    this.map = new Map({
       target: 'map',
       layers: [
         new TileLayer({
@@ -126,16 +133,23 @@ export class AccueilComponent implements OnInit {
      /**
       * Add a click handler to the map to render the popup.
      */
-    map.on('singleclick', function(evt) {
+    this.map.on('singleclick', function(evt) {
       var coordinate = evt.coordinate;
-      var hasMarker=map.hasFeatureAtPixel(evt.pixel);
+      var hasMarker=this.hasFeatureAtPixel(evt.pixel);
       if (hasMarker) {
-        var marker=map.getFeaturesAtPixel(evt.pixel);
-        content.innerHTML = "<a href='/monument/"+marker[0].values_.id+"'>"+ marker[0].values_.name +"</a>";
+        var marker=this.getFeaturesAtPixel(evt.pixel);
+        var nom = marker[0].values_.name;  
+        for (let index = 0; index < content.children.length; index++) {
+          if(content.children[index].innerHTML==nom){
+            content.children[index].setAttribute("style","visibility:visible");
+          }
+          else{
+            content.children[index].setAttribute("style","visibility:hidden");
+          }
+        }
         overlay.setPosition(coordinate);
       }
     });
-
   }
 
 }
