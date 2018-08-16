@@ -1,6 +1,7 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
 import {D3Service,D3,Selection} from 'd3-ng2-service';
+import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 
 
 
@@ -37,8 +38,14 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
   /**
    * initialisation des services
    */
-  constructor(d3Service: D3Service,private info:InfosMonumenttService) {
+  constructor(d3Service: D3Service,private info:InfosMonumenttService,private translate:TranslateService) {
     this.d3 = d3Service.getD3();
+    var lang=info.getlangue();
+    console.log("langue début component",lang)
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      // do something
+      console.log("langue après update statistique",event.lang);
+    });
    }
 
    ngOnDestroy() {
@@ -125,6 +132,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
+
 
   
 

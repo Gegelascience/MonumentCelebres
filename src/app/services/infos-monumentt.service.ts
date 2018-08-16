@@ -16,6 +16,11 @@ export class InfosMonumenttService {
   private _url:string='./src/assets/data/infos.json';
 
   /**
+   * langue
+   */
+  private langue:string;
+
+  /**
    * Constructeur important le module http
    */
 
@@ -28,5 +33,13 @@ export class InfosMonumenttService {
   getInfoMonument(){
     return this.http.get(this._url)
    };
+
+   getlangue():string{
+     return this.langue;
+   }
+
+   updateLangue(lang:string){
+     this.langue=lang;
+   }
 }
 

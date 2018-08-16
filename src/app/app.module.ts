@@ -17,7 +17,7 @@ import { AgGridModule } from 'ag-grid-angular';
 
 import {RouteModule} from './route/route.module';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
-import { TranslateModule,TranslateLoader } from "@ngx-translate/core";
+import { TranslateModule,TranslateLoader,TranslateService } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 export function createTranslateLoader(http:HttpClient) {
@@ -47,7 +47,7 @@ export function createTranslateLoader(http:HttpClient) {
     RouteModule,
     AgGridModule.withComponents([])
   ],
-  providers: [InfosMonumenttService,D3Service],
+  providers: [InfosMonumenttService,D3Service,TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

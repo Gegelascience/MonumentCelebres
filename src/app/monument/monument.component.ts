@@ -5,6 +5,7 @@ import { Pyramid } from '../class/pyramid';
 import {BigBen} from '../class/big-ben';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
 import * as BABYLON from '../../assets/script/babylon.custom.js'
+import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 
 
 /**
@@ -52,10 +53,16 @@ export class MonumentComponent implements OnInit, OnDestroy {
    * Constructeur du component monument
    */
 
-  constructor(private route: ActivatedRoute, private info:InfosMonumenttService,private router: Router ) {
+  constructor(private route: ActivatedRoute, private info:InfosMonumenttService,private router: Router,private translate:TranslateService ) {
     this.route.params.forEach((params: Params) => {
       this.monumentName=params['name'];
       this.Monument=this.chooseMonument(this.monumentName)
+    });
+    var lang=info.getlangue();
+    console.log("langue début component",lang)
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      // do something
+      console.log("langue après update monument",event.lang);
     });
    }
 

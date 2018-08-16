@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import {Map,View,Feature,Overlay} from 'ol';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import OSM from 'ol/source/OSM';
@@ -8,6 +7,7 @@ import { Point } from "ol/geom";
 import { Icon,Style } from "ol/style";
 import VectorSource from 'ol/source/Vector.js';
 import {InfosMonumenttService} from '../../services/infos-monumentt.service';
+import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 
 /**
  * page d'accueil
@@ -33,8 +33,13 @@ export class AccueilComponent implements OnInit {
    */
   private map;
 
-  constructor(private info:InfosMonumenttService,private router:Router) { 
-    
+  constructor(private info:InfosMonumenttService,private translate:TranslateService) { 
+    var lang=info.getlangue();
+    console.log("langue début component",lang)
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      // do something
+      console.log("langue après update accueil",event.lang);
+    });
   }
 
   /**
