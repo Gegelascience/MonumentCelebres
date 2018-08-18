@@ -13,7 +13,8 @@ export class InfosMonumenttService {
    * url du fichier json
    */
   
-  private _url:string='./src/assets/data/infos.json';
+  private _url:string='./src/assets/data/infos';
+  private format:string=".json";
 
   /**
    * langue
@@ -31,7 +32,7 @@ export class InfosMonumenttService {
    */
 
   getInfoMonument(){
-    return this.http.get(this._url)
+    return this.http.get(this._url+this.langue+this.format)
    };
 
    getlangue():string{

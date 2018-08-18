@@ -58,11 +58,14 @@ export class MonumentComponent implements OnInit, OnDestroy {
       this.monumentName=params['name'];
       this.Monument=this.chooseMonument(this.monumentName)
     });
-    var lang=info.getlangue();
-    console.log("langue début component",lang)
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
-      console.log("langue après update monument",event.lang);
+      var temp:any;
+      this.info.getInfoMonument()
+      .subscribe(data=>{
+        temp=data.json();
+        this.details=temp[this.choixInfo];
+      });
     });
    }
 
@@ -71,8 +74,6 @@ export class MonumentComponent implements OnInit, OnDestroy {
    */
 
   ngOnInit() {
-    
-
     var temp:any;
     this.info.getInfoMonument()
     .subscribe(data=>{

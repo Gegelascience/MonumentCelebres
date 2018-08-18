@@ -38,7 +38,15 @@ export class AccueilComponent implements OnInit {
     console.log("langue début component",lang)
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
-      console.log("langue après update accueil",event.lang);
+      this.info.getInfoMonument()
+      .subscribe(data=>{
+        this.data=data.json();
+        var layers=this.map.getLayers();
+        layers.pop();
+        var markers=this.createFeatures();
+        layers.push(markers);
+      });
+      
     });
   }
 
@@ -59,18 +67,7 @@ export class AccueilComponent implements OnInit {
   DrawMap(){
     //centre de la map
     var centerMap=fromLonLat([2.287592000000018,40.862725 ]);
-    //dessin des markers
-    var markers=[];
-    for (let index = 0; index < this.data.length; index++) {
-      var tmp = new Feature({
-        type: 'icon',
-        geometry: new Point(fromLonLat([this.data[index].longitude, this.data[index].latitude])),
-        name:this.data[index].nom,
-        id:index
-      });
-      markers.push(tmp);
-      
-    }
+
     /**
     * Elements that make up the popup.
     */
@@ -89,7 +86,6 @@ export class AccueilComponent implements OnInit {
       }
     });
 
-
     /**
      * Add a click handler to hide the popup.
      * @return {boolean} Don't follow the href.
@@ -100,23 +96,9 @@ export class AccueilComponent implements OnInit {
       return false;
     };
 
-    var style={
-      'icon': new Style({
-        image: new Icon({
-          anchor: [0.5, 1],
-          src: 'assets/marker.png'
-        })
-      }),
-    };
-    var vectorLayer = new VectorLayer({
-      source: new VectorSource({
-        features: markers
-      }),
-      style: function(feature) {
-        
-        return style[feature.get('type')];
-      }
-    });
+
+    var vectorLayer=this.createFeatures();
+
     //dessin de la carte
     this.map = new Map({
       target: 'map',
@@ -155,6 +137,40 @@ export class AccueilComponent implements OnInit {
         overlay.setPosition(coordinate);
       }
     });
+  }
+
+  createFeatures(){
+    //dessin des markers
+    var markers=[];
+    for (let index = 0; index < this.data.length; index++) {
+      var tmp = new Feature({
+        type: 'icon',
+        geometry: new Point(fromLonLat([this.data[index].longitude, this.data[index].latitude])),
+        name:this.data[index].nom,
+        id:index
+      });
+      markers.push(tmp);
+    }
+    var style={
+      'icon': new Style({
+        image: new Icon({
+          anchor: [0.5, 1],
+          src: 'assets/marker.png'
+        })
+      }),
+    };
+    var vectorLayer = new VectorLayer({
+      source: new VectorSource({
+        features: markers
+      }),
+      style: function(feature) {
+          
+        return style[feature.get('type')];
+      }
+    });
+
+    return vectorLayer;
+    
   }
 
 }

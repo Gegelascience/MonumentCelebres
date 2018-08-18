@@ -1,0 +1,26 @@
+[
+    {
+        "nom":"Eiffel tower",
+        "description":"Puddled iron tower built in 1887. Symbol of the French capital, it is the most visited paying monument in the world.",
+        "hauteur":324,
+        "longitude":2.298087500000065,
+        "latitude":48.85589859999999,
+        "pays":"France"
+    },
+    {
+        "nom":"Giza's pyramids",
+        "description":"Last wonder of the ancient world still standing. Includes the pyramids of Cheops, Chephren and Mykerinos. Cheops is the largest (dimensions below).",
+        "hauteur":146.58,
+        "longitude":31.132495500000005,
+        "latitude":29.9772962,
+        "pays":"Egypte"
+    },
+    {
+        "nom":"Big Ben",
+        "description":"Bell of 13.5 tons, it is the symbol of London. His visit is only possible for the inhabitants of the United Kingdom.",
+        "hauteur":96,
+        "longitude":-0.12462540000001354,
+        "latitude":51.50072919999999,
+        "pays":"Royaume-Uni"
+    }
+    ]

@@ -2,6 +2,7 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import {InfosMonumenttService} from '../services/infos-monumentt.service';
 import {D3Service,D3,Selection} from 'd3-ng2-service';
 import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
+import { Observable } from '../../../node_modules/rxjs';
 
 
 
@@ -16,11 +17,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
   private gridApi;
   private gridColumnApi;
 
-  private columnDefs = [
-    {headerName: 'Monument', field: 'monument' },
-    {headerName: 'Pays', field: 'pays' },
-    {headerName: 'Hauteur (m)', field: 'hauteur'}
-  ];
+  private columnDefs;
 
   private rowData:any[];
 
@@ -34,17 +31,41 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
    */
   private data:any[]=[];
 
+  /**
+   * langue
+   */
+  langue:string;
   
   /**
    * initialisation des services
    */
   constructor(d3Service: D3Service,private info:InfosMonumenttService,private translate:TranslateService) {
     this.d3 = d3Service.getD3();
-    var lang=info.getlangue();
-    console.log("langue début component",lang)
+    this.langue=this.info.getlangue();
+    if (this.langue=="fr") {
+      this.columnDefs=[
+        {headerName: 'Monument', field: 'monument' },
+        {headerName: 'Pays', field: 'pays' },
+        {headerName: 'Hauteur (m)', field: 'hauteur'}
+      ];
+    } else {
+      this.columnDefs=[
+        {headerName: 'Monument', field: 'monument' },
+        {headerName: 'Country', field: 'pays' },
+        {headerName: 'Height (m)', field: 'hauteur'}
+      ];
+    }
+    
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
-      console.log("langue après update statistique",event.lang);
+      this.info.getInfoMonument()
+      .subscribe(data=>{
+        this.data=data.json();
+        this.remoChartHeight();      
+        this.DrawCharHeight();
+        this.removeTab(event.lang);
+        this.fillTab();
+      });
     });
    }
 
@@ -114,7 +135,18 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       .attr("height", function(d) { return height - y(d.hauteur); });
   }
 
+  /**
+   * vide le graphique
+   */
+  remoChartHeight(){
+    var svg=document.getElementById("hauteur");
+    svg.innerHTML="";
 
+  }
+
+  /**
+   * remplit le tableau
+   */
   fillTab(){
 
     for (let index = 0; index < this.data.length; index++) {
@@ -128,9 +160,40 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     }
   }
 
+  /**
+   * traduit le tableau
+   */
+  removeTab(lang:string){
+    this.gridApi.setRowData([]);
+
+    // get the column definition
+    var colCountry = this.gridColumnApi.getColumn("pays").getColDef();
+    var colHeight = this.gridColumnApi.getColumn("hauteur").getColDef();
+    
+
+    // update the header name
+    if (lang=="en") {
+      colCountry.headerName = "Country";
+      colHeight.headerName = "Height (m)";
+    } else {
+      colCountry.headerName = "Pays";
+      colHeight.headerName = "Hauteur (m)";
+    }
+    
+
+    // the column is now updated. to reflect the header change, get the grid refresh the header
+    this.gridApi.refreshHeader();
+    
+  }
+
+  /**
+   * affiche le tableau et update les colonnes
+   */
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+
+    
   }
 
 
