@@ -22,6 +22,10 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
   }
+  /**
+   * Change la langue du site et met à jour le bouton changement de langue
+   * @param lang langue
+   */
   setLanguage(lang:string){
     this.translate.use(lang);
     var langText=document.getElementById("language");

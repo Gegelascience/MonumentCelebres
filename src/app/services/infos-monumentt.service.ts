@@ -35,10 +35,17 @@ export class InfosMonumenttService {
     return this.http.get(this._url+this.langue+this.format)
    };
 
+   /**
+    * récupère la langue du site
+    */
    getlangue():string{
      return this.langue;
    }
 
+   /**
+    * update la langue du site
+    * @param lang langue
+    */
    updateLangue(lang:string){
      this.langue=lang;
    }
