@@ -24,6 +24,17 @@ export class NavigationComponent implements OnInit {
   }
   setLanguage(lang:string){
     this.translate.use(lang);
+    var langText=document.getElementById("language");
+    var langFlag=document.getElementById("flag");
+    if (lang=="en") {
+      langFlag.setAttribute("class","flag flag-gb m-1 d-inline");
+      langFlag.setAttribute("alt","United Kingdom");
+      langText.innerHTML="English"
+    } else {
+      langFlag.setAttribute("class","flag flag-fr m-1 d-inline");
+      langFlag.setAttribute("alt","France");
+      langText.innerHTML="Français"
+    }
   }
 
 }

@@ -155,7 +155,7 @@ export class AccueilComponent implements OnInit {
       'icon': new Style({
         image: new Icon({
           anchor: [0.5, 1],
-          src: 'assets/marker.png'
+          src: 'assets/images/marker.png'
         })
       }),
     };
