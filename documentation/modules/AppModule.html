@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#xs-components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="xs-components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -105,14 +105,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#xs-injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="xs-injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -199,6 +199,9 @@
                     id="xs-miscellaneous-links"
                 >
                     <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
+                    <li class="link">
                       <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                     </li>
             </ul>
@@ -283,14 +286,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -314,14 +317,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -407,6 +410,9 @@
             <ul class="links collapse"
                     id="miscellaneous-links"
 >
+                    <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
                     <li class="link">
                       <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                     </li>
@@ -712,8 +718,13 @@ import { NavigationComponent } from &#x27;./navigation/navigation.component&#x27
 import { AgGridModule } from &#x27;ag-grid-angular&#x27;;
 
 import {RouteModule} from &#x27;./route/route.module&#x27;;
+import { HttpClient,HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { TranslateModule,TranslateLoader,TranslateService } from &quot;@ngx-translate/core&quot;;
+import { TranslateHttpLoader } from &quot;@ngx-translate/http-loader&quot;;
 
-
+export function createTranslateLoader(http:HttpClient) {
+  return new TranslateHttpLoader(http,&#x27;./assets/i18n/&#x27;,&#x27;.json&#x27;);
+}
 
 @NgModule({
   declarations: [
@@ -727,10 +738,18 @@ import {RouteModule} from &#x27;./route/route.module&#x27;;
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:(createTranslateLoader),
+        deps:[HttpClient]
+      }
+    }),
     RouteModule,
     AgGridModule.withComponents([])
   ],
-  providers: [InfosMonumenttService,D3Service],
+  providers: [InfosMonumenttService,D3Service,TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

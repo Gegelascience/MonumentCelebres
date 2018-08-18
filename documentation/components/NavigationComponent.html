@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#xs-components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="xs-components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -105,14 +105,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#xs-injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="xs-injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -199,6 +199,9 @@
                     id="xs-miscellaneous-links"
                 >
                     <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
+                    <li class="link">
                       <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                     </li>
             </ul>
@@ -283,14 +286,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -314,14 +317,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -407,6 +410,9 @@
             <ul class="links collapse"
                     id="miscellaneous-links"
 >
+                    <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
                     <li class="link">
                       <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                     </li>
@@ -532,6 +538,9 @@
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
+                            <li>
+                                <a href="#setLanguage">setLanguage</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -550,15 +559,57 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(translate: TranslateService, info: <a href="../injectables/InfosMonumenttService.html">InfosMonumenttService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/navigation/navigation.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/navigation/navigation.component.ts:10</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <td>translate</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>info</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/InfosMonumenttService.html" target="_self" >InfosMonumenttService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -594,7 +645,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/navigation/navigation.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/navigation/navigation.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -609,6 +660,74 @@
                 </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setLanguage"></a>
+                        <span class="name">
+                            <b>
+                            setLanguage
+                            </b>
+                            <a href="#setLanguage"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setLanguage(lang: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/navigation/navigation.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>lang</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </section>
 
 
@@ -616,7 +735,9 @@
 
 
     <div class="tab-pane fade tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { TranslateService, LangChangeEvent } from &quot;@ngx-translate/core&quot;;
+import { InfosMonumenttService } from &quot;../services/infos-monumentt.service&quot;;
 
 @Component({
   selector: &#x27;app-navigation&#x27;,
@@ -625,9 +746,21 @@
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private translate: TranslateService,private info:InfosMonumenttService) {
+    translate.setDefaultLang(&#x27;fr&#x27;);
+    translate.use(&#x27;fr&#x27;);
+    info.updateLangue(&#x27;fr&#x27;);
+    translate.onLangChange.subscribe((event: LangChangeEvent) &#x3D;&gt; {
+      // do something
+      console.log(&quot;langue après update appnavigation&quot;,event.lang);
+      info.updateLangue(event.lang);
+    });
+   }
 
   ngOnInit() {
+  }
+  setLanguage(lang:string){
+    this.translate.use(lang);
   }
 
 }
@@ -636,15 +769,24 @@ export class NavigationComponent implements OnInit {
 
     <div class="tab-pane fade" id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;navbar navbar-expand-lg navbar-dark bg-success&quot;&gt;
-    &lt;a class&#x3D;&quot;navbar-brand&quot; href&#x3D;&quot;#&quot;&gt;Monuments Célèbres&lt;/a&gt;
+    &lt;a class&#x3D;&quot;navbar-brand&quot; routerLink&#x3D;&quot;/accueil&quot; &gt;{{&#x27;TITLE&#x27;|translate}}&lt;/a&gt;
     &lt;ul class&#x3D;&quot;nav navbar-nav&quot;&gt;
       &lt;li class&#x3D;&quot;nav-item active&quot;&gt;
-        &lt;a class&#x3D;&quot;nav-link&quot; href&#x3D;&quot;/&quot;&gt;Accueil &lt;span class&#x3D;&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;				
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/accueil&quot; &gt;{{&#x27;HOME&#x27;|translate}} &lt;span class&#x3D;&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;				
       &lt;/li&gt;
       &lt;li class&#x3D;&quot;nav-item active&quot;&gt;
-        &lt;a class&#x3D;&quot;nav-link&quot; href&#x3D;&quot;stat&quot;&gt;Statistiques &lt;span class&#x3D;&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;				
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/stat&quot; &gt;{{&#x27;STAT&#x27;|translate}} &lt;span class&#x3D;&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;				
       &lt;/li&gt;
     &lt;/ul&gt;
+    &lt;div class&#x3D;&quot;dropdown&quot;&gt;
+      &lt;button class&#x3D;&quot;btn btn-secondary dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownLang&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+        {{&#x27;LANGUAGE&#x27;|translate}}
+      &lt;/button&gt;
+      &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownLang&quot;&gt;
+        &lt;button class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;setLanguage(&#x27;en&#x27;)&quot; &gt;English&lt;/button&gt;
+        &lt;button class&#x3D;&quot;dropdown-item&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;setLanguage(&#x27;fr&#x27;)&quot; &gt;Français&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/nav&gt;</code></pre>
     </div>
 
@@ -671,7 +813,7 @@ export class NavigationComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-dark bg-success">    <a class="navbar-brand" href="#">Monuments Célèbres</a>    <ul class="nav navbar-nav">      <li class="nav-item active">        <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>				      </li>      <li class="nav-item active">        <a class="nav-link" href="stat">Statistiques <span class="sr-only">(current)</span></a>				      </li>    </ul>  </nav></div>'
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-dark bg-success">    <a class="navbar-brand" routerLink="/accueil" >{{\'TITLE\'|translate}}</a>    <ul class="nav navbar-nav">      <li class="nav-item active">        <a class="nav-link" routerLink="/accueil" >{{\'HOME\'|translate}} <span class="sr-only">(current)</span></a>				      </li>      <li class="nav-item active">        <a class="nav-link" routerLink="/stat" >{{\'STAT\'|translate}} <span class="sr-only">(current)</span></a>				      </li>    </ul>    <div class="dropdown">      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">        {{\'LANGUAGE\'|translate}}      </button>      <div class="dropdown-menu" aria-labelledby="dropdownLang">        <button class="dropdown-item" type="button" (click)="setLanguage(\'en\')" >English</button>        <button class="dropdown-item" type="button" (click)="setLanguage(\'fr\')" >Français</button>      </div>    </div>  </nav></div>'
     var COMPONENTS = [{'name': 'AccueilComponent', 'selector': 'app-accueil'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MonumentComponent', 'selector': 'app-monument'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'StatistiquesComponent', 'selector': 'app-statistiques'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavigationComponent'};

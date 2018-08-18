@@ -74,14 +74,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#xs-components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="xs-components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -105,14 +105,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#xs-injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="xs-injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="xs-injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
                                     >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -199,6 +199,9 @@
                     id="xs-miscellaneous-links"
                 >
                     <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
+                    <li class="link">
                       <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                     </li>
             </ul>
@@ -283,14 +286,14 @@
                         <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                     <span class="fa fa-fw fa-cogs"></span>
                                     <span>Components</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="components-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="components-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                         <li class="link">
                                             <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -314,14 +317,14 @@
                             </li>
                             <li class="chapter inner">
                                 <div class="simple menu-toggler" data-toggle="collapse"
-                                        data-target="#injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        data-target="#injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                     <span class="fa fa-fw fa-long-arrow-down"></span>
                                     <span>Injectables</span>
                                     <span class="fa fa-angle-down"></span>
                                 </div>
                                 <ul class="links collapse"
-                                        id="injectables-links-module-AppModule-642be38f-e8cb-4379-8a41-a46388a47c13"
+                                        id="injectables-links-module-AppModule-10de0190-8002-4ae2-a278-c8183d9cebdf"
 >
                                         <li class="link">
                                             <a href="injectables/InfosMonumenttService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules"}>InfosMonumenttService</a>
@@ -407,6 +410,9 @@
             <ul class="links collapse"
                     id="miscellaneous-links"
 >
+                    <li class="link">
+                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                    </li>
                     <li class="link">
                       <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                     </li>
@@ -665,8 +671,8 @@ export class PageNotFoundComponent implements OnInit {
     <div class="tab-pane fade" id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;card text-center w-100 p-3 border-success mb-3&quot; style&#x3D;&quot;width: 18rem;&quot;&gt;
     &lt;div class&#x3D;&quot;card-body&quot;&gt;
-      &lt;h5 class&#x3D;&quot;card-title&quot;&gt;Erreur 404&lt;/h5&gt;
-      &lt;p class&#x3D;&quot;card-text&quot;&gt;La page que vous cherchez n&#x27;a pas été trouvée&lt;/p&gt;
+      &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{&#x27;ERROR&#x27;|translate}}&lt;/h5&gt;
+      &lt;p class&#x3D;&quot;card-text&quot;&gt;{{&#x27;REASON&#x27;|translate}}&lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 </code></pre>
@@ -695,7 +701,7 @@ export class PageNotFoundComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="card text-center w-100 p-3 border-success mb-3" style="width: 18rem;">    <div class="card-body">      <h5 class="card-title">Erreur 404</h5>      <p class="card-text">La page que vous cherchez n\'a pas été trouvée</p>    </div>  </div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="card text-center w-100 p-3 border-success mb-3" style="width: 18rem;">    <div class="card-body">      <h5 class="card-title">{{\'ERROR\'|translate}}</h5>      <p class="card-text">{{\'REASON\'|translate}}</p>    </div>  </div></div>'
     var COMPONENTS = [{'name': 'AccueilComponent', 'selector': 'app-accueil'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'MonumentComponent', 'selector': 'app-monument'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'StatistiquesComponent', 'selector': 'app-statistiques'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PageNotFoundComponent'};
