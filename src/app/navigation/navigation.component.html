@@ -1,6 +1,6 @@
 <link href="../../assets/images/flags/flags.css" rel=stylesheet type="text/css">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success d-flex">
     <a class="navbar-brand" routerLink="/accueil" >{{'TITLE'|translate}}</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
@@ -10,7 +10,7 @@
         <a class="nav-link" routerLink="/stat" >{{'STAT'|translate}} <span class="sr-only">(current)</span></a>				
       </li>
     </ul>
-    <div class="dropdown">
+    <div class="dropdown ml-auto p-2">
       <button class="btn btn-white dropdown-toggle" type="button" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img id="flag" src="../../assets/images/flags/blank.gif" class="flag flag-fr m-1" alt="France" />
         <div id="language" class="d-inline">
