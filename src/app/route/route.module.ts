@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { StatistiquesComponent } from '../statistiques/statistiques.component';
-import { AccueilComponent } from '../accueil/accueil/accueil.component';
-import { PageNotFoundComponent } from '../error404/page-not-found/page-not-found.component';
-import { MonumentComponent } from '../monument/monument.component';
+import { StatistiquesComponent } from '../components/statistiques/statistiques.component';
+import { AccueilComponent } from '../components/accueil/accueil.component';
+import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
+import { MonumentComponent } from '../components/monument/monument.component';
 
 const appRoutes: Routes = [
   {path:'accueil', component: AccueilComponent},

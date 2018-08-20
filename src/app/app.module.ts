@@ -4,14 +4,14 @@ import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http'
 
 import { AppComponent } from './app.component';
-import { AccueilComponent } from './accueil/accueil/accueil.component';
-import { PageNotFoundComponent } from './error404/page-not-found/page-not-found.component';
-import { MonumentComponent } from './monument/monument.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MonumentComponent } from './components/monument/monument.component';
 
 import {InfosMonumenttService} from './services/infos-monumentt.service'
 import { D3Service } from 'd3-ng2-service';
-import { StatistiquesComponent } from './statistiques/statistiques.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { StatistiquesComponent } from './components/statistiques/statistiques.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 import { AgGridModule } from 'ag-grid-angular';
 
