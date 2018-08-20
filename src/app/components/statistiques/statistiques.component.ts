@@ -1,10 +1,7 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
-import {InfosMonumenttService} from '../services/infos-monumentt.service';
+import {InfosMonumenttService} from '../../services/infos-monumentt.service';
 import {D3Service,D3,Selection} from 'd3-ng2-service';
 import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
-import { Observable } from '../../../node_modules/rxjs';
-
-
 
 
 @Component({

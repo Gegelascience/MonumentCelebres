@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TourEiffel } from '../class/tour-eiffel';
+import { TourEiffel } from '../../class/tour-eiffel';
 import {ActivatedRoute, Params,Router} from '@angular/router';
-import { Pyramid } from '../class/pyramid';
-import {BigBen} from '../class/big-ben';
-import {InfosMonumenttService} from '../services/infos-monumentt.service';
-import * as BABYLON from '../../assets/script/babylon.custom.js'
+import { Pyramid } from '../../class/pyramid';
+import {BigBen} from '../../class/big-ben';
+import {InfosMonumenttService} from '../../services/infos-monumentt.service';
+import * as BABYLON from '../../../assets/script/babylon.custom.js'
 import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 
 

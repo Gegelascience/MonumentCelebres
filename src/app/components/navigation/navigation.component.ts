@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
-import { InfosMonumenttService } from "../services/infos-monumentt.service";
+import { InfosMonumenttService } from "../../services/infos-monumentt.service";
 
 @Component({
   selector: 'app-navigation',
