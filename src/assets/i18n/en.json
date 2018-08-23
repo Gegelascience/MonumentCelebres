@@ -12,5 +12,6 @@
     "DETAILS":"Details",
     "HEIGHT":"Height",
     "METER":"meters",
-    "COUNTRY":"Country"
+    "COUNTRY":"Country",
+    "INSTRUCTION":"Use directional keys and mouse to move around the monument."
 }

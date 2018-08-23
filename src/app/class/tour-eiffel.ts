@@ -29,7 +29,7 @@ export class TourEiffel {
       //socle piliers
       
       var socle1 = BABYLON.MeshBuilder.CreateBox("box", {height: 2,width:10,depth:10}, scene);
-      socle1.material=matsocle;
+      socle1.material=matetage;
       socle1.position.y=-1.5;
       socle1.position.z=15+this.offset;
       socle1.position.x=-15;
