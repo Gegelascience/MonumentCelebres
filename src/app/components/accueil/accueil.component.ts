@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import {Map,View,Feature,Overlay} from 'ol';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import OSM from 'ol/source/OSM';
@@ -18,15 +18,17 @@ import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-export class AccueilComponent implements OnInit {
+export class AccueilComponent implements OnInit,OnDestroy {
 
   /**
    * Données
    */
   private data:any[]=[];
+
   /**
-  * constructeur par défaut
-  */
+   * memoire handler traduction
+   */
+  langMemo:any;
 
   /**
    * carte des emplacements
@@ -35,8 +37,7 @@ export class AccueilComponent implements OnInit {
 
   constructor(private info:InfosMonumenttService,private translate:TranslateService) { 
     var lang=info.getlangue();
-    console.log("langue début component",lang)
-    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.langMemo=translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
       this.info.getInfoMonument()
       .subscribe(data=>{
@@ -59,6 +60,10 @@ export class AccueilComponent implements OnInit {
       this.data=data.json();
       this.DrawMap();
     });
+  }
+
+  ngOnDestroy(){
+    this.langMemo.unsubscribe();
   }
 
   /**

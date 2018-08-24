@@ -32,7 +32,12 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
    * langue
    */
   langue:string;
-  
+
+  /**
+   * memoire handler traduction
+   */
+  langMemo:any;
+
   /**
    * initialisation des services
    */
@@ -53,7 +58,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       ];
     }
     
-    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.langMemo=translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
       this.info.getInfoMonument()
       .subscribe(data=>{
@@ -67,6 +72,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
    }
 
    ngOnDestroy() {
+     this.langMemo.unsubscribe();
   }
 /**
  * initialisation des données et dessin des statistiques 

@@ -48,6 +48,11 @@ export class MonumentComponent implements OnInit, OnDestroy {
    */
   vrHelper:any;
 
+  /**
+   * memoire handler traduction
+   */
+  langMemo:any;
+
 
   /**
    * Constructeur du component monument
@@ -58,7 +63,7 @@ export class MonumentComponent implements OnInit, OnDestroy {
       this.monumentName=params['name'];
       this.Monument=this.chooseMonument(this.monumentName)
     });
-    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.langMemo=translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // do something
       var temp:any;
       this.info.getInfoMonument()
@@ -151,6 +156,7 @@ export class MonumentComponent implements OnInit, OnDestroy {
   };
 
   ngOnDestroy(){
+    this.langMemo.unsubscribe();
     if(this.vrHelper!=null){
       this.vrHelper.dispose();
     }
