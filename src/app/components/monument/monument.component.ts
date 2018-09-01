@@ -11,7 +11,6 @@ import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 /**
  * Page affichant un monument en 3d et ses détails
  */
-
 @Component({
   selector: 'app-monument',
   templateUrl: './monument.component.html',
@@ -22,25 +21,21 @@ export class MonumentComponent implements OnInit, OnDestroy {
   /**
    * Monument à afficher
    */
-
   Monument:any;
 
   /**
    * index du choix de monument
    */
-
   choixInfo:number;
 
   /**
    * nom du monument
    */
-
   monumentName:string;
 
   /**
    * liste des détails du monument
    */
-
   details:any=[];
 
   /**
@@ -53,11 +48,13 @@ export class MonumentComponent implements OnInit, OnDestroy {
    */
   langMemo:any;
 
-
   /**
    * Constructeur du component monument
+   * @param route Route active
+   * @param info Service InfosMonumentt
+   * @param router Router
+   * @param translate Service de traduction
    */
-
   constructor(private route: ActivatedRoute, private info:InfosMonumenttService,private router: Router,private translate:TranslateService ) {
     this.route.params.forEach((params: Params) => {
       this.monumentName=params['name'];
@@ -75,9 +72,8 @@ export class MonumentComponent implements OnInit, OnDestroy {
    }
 
    /**
-   * onInit du component monument
-   */
-
+    * Initialise le composant avec les informations sur le monument affiché
+    */
   ngOnInit() {
     var temp:any;
     this.info.getInfoMonument()
@@ -94,7 +90,6 @@ export class MonumentComponent implements OnInit, OnDestroy {
 
     var scene = this.createMonument(this.Monument,canvas,engine); //Call the createScene function
 
-    var context=this;
     engine.runRenderLoop(function () { // Register a render loop to repeatedly render the scene
           scene.render();
     });
@@ -105,10 +100,11 @@ export class MonumentComponent implements OnInit, OnDestroy {
     });
   }
 
-  /**
-   * fonction pour détecter le monument à afficher
-   */
 
+  /**
+   * Choisit le bon monument à afficher
+   * @param name Nom du monument
+   */
   chooseMonument(name:string){
     if (name=="0"){
       this.choixInfo=0;
@@ -128,14 +124,13 @@ export class MonumentComponent implements OnInit, OnDestroy {
     }
   }
 
- 
-
   /**
-  * fonction qui crée en 3d un monument
-  */
-
+   * fonction qui crée en 3d un monument
+   * @param Monument monument à dessiner
+   * @param canvas endroit où dessiner
+   * @param engine babylon engine
+   */
   createMonument(Monument:any,canvas,engine){
-      
     // Create the scene space
     var scene = new BABYLON.Scene(engine);
     this.vrHelper= scene.createDefaultVRExperience();
@@ -144,17 +139,16 @@ export class MonumentComponent implements OnInit, OnDestroy {
     var camera = new BABYLON.FreeCamera("Camera",camPosition,scene);
     camera.attachControl(canvas, true);
 
-    
-  
     scene.clearColor=new BABYLON.Color4(240/255,1,1,1);
     //dessin monument
     var offset=100;
     Monument.Draw(BABYLON,scene);
-
-
     return scene;
   };
 
+  /**
+   * Destruction du composant
+   */
   ngOnDestroy(){
     this.langMemo.unsubscribe();
     if(this.vrHelper!=null){

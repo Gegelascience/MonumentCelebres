@@ -2,13 +2,20 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TranslateService, LangChangeEvent } from "@ngx-translate/core";
 import { InfosMonumenttService } from "../../services/infos-monumentt.service";
 
+/**
+ * Composant de navigation
+ */
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
+  /**
+   * constructeur du composant
+   * @param translate Service de traduction
+   * @param info Service InfosMonumentt
+   */
   constructor(private translate: TranslateService,private info:InfosMonumenttService) {
     translate.setDefaultLang('fr');
     translate.use('fr');

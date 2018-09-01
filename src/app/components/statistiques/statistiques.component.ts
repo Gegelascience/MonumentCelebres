@@ -3,7 +3,9 @@ import {InfosMonumenttService} from '../../services/infos-monumentt.service';
 import {D3Service,D3,Selection} from 'd3-ng2-service';
 import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 
-
+/**
+ * Page statistiques
+ */
 @Component({
   selector: 'app-statistiques',
   templateUrl: './statistiques.component.html',
@@ -11,17 +13,33 @@ import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 })
 export class StatistiquesComponent implements OnInit,OnDestroy {
 
+  /**
+   * API ag-grid générale
+   */
   private gridApi;
+  /**
+   * API ag-grid des colonnes
+   */
   private gridColumnApi;
 
+  /**
+   * Colonnes du tableau
+   */
   private columnDefs;
 
+  /**
+   * Lignes du tableau
+   */
   private rowData:any[];
 
   /**
-   * Variables D3js
+   * Variable générale D3js
    */
   private d3: D3;
+
+  /**
+   * Variable de svg d3.js
+   */
   private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
   /**
    * Données
@@ -40,6 +58,9 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
 
   /**
    * initialisation des services
+   * @param d3Service Service D3
+   * @param info Service InfosMonumentt
+   * @param translate Service de traduction
    */
   constructor(d3Service: D3Service,private info:InfosMonumenttService,private translate:TranslateService) {
     this.d3 = d3Service.getD3();
@@ -71,6 +92,9 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     });
    }
 
+   /**
+    * Détruit le composant
+    */
    ngOnDestroy() {
      this.langMemo.unsubscribe();
   }
@@ -163,9 +187,10 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
     }
   }
 
-  /**
-   * traduit le tableau
-   */
+ /**
+  * traduit le tableau
+  * @param lang lang
+  */
   removeTab(lang:string){
     this.gridApi.setRowData([]);
 
@@ -190,7 +215,8 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * affiche le tableau et update les colonnes
+   * Récupère les api ag-grid
+   * @param params 
    */
   onGridReady(params) {
     this.gridApi = params.api;

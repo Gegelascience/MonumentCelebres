@@ -5,19 +5,23 @@
 
 export class Pyramid {
 
-    offset:number=100;
+    /**
+     * offset du monument par rapport à la caméra
+     */
+    offset:number=250;
     /**
    * Constructeur par défaut
    */
-
     constructor() {
 
     }
 
-    /**
-     * fonction pour dessiner les pyramides de Gizeh
-     */
 
+     /**
+     * fonction pour dessiner les pyramides de Gizeh
+     * @param BABYLON Variable de Babylonjs
+     * @param scene scène où est dessiné les pyramides de Gizeh
+     */
     public Draw(BABYLON:any,scene:any){
         
         //couleurs

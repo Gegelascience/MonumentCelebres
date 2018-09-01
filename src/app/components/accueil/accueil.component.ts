@@ -12,7 +12,6 @@ import { TranslateService,LangChangeEvent } from "@ngx-translate/core";
 /**
  * page d'accueil
  */
-
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -35,6 +34,11 @@ export class AccueilComponent implements OnInit,OnDestroy {
    */
   private map;
 
+  /**
+   * Construit le component avec les services initialisés
+   * @param info Service InfosMonumentt
+   * @param translate Service de traduction
+   */
   constructor(private info:InfosMonumenttService,private translate:TranslateService) { 
     var lang=info.getlangue();
     this.langMemo=translate.onLangChange.subscribe((event: LangChangeEvent) => {
@@ -52,7 +56,7 @@ export class AccueilComponent implements OnInit,OnDestroy {
   }
 
   /**
-  * onInit par défaut
+  * Dessine la carye
   */
   ngOnInit() {
     this.info.getInfoMonument()
@@ -62,6 +66,9 @@ export class AccueilComponent implements OnInit,OnDestroy {
     });
   }
 
+  /**
+   * Détruit le composant
+   */
   ngOnDestroy(){
     this.langMemo.unsubscribe();
   }
@@ -69,7 +76,7 @@ export class AccueilComponent implements OnInit,OnDestroy {
   /**
    *Dessin de la carte des monuments
    */
-  DrawMap(){
+  DrawMap():void{
     //centre de la map
     var centerMap=fromLonLat([2.287592000000018,40.862725 ]);
 
@@ -144,6 +151,9 @@ export class AccueilComponent implements OnInit,OnDestroy {
     });
   }
 
+  /**
+   * Crée les marqueurs
+   */
   createFeatures(){
     //dessin des markers
     var markers=[];

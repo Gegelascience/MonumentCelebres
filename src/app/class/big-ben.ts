@@ -5,19 +5,23 @@
 
 export class BigBen {
 
-  /**
+    /**
+     * offset du monument par rapport à la caméra
+     */
+    offset:number=150;
+
+    /**
    * Constructeur par défaut
    */
-    offset:number=100;
-
     constructor() {
 
     }
 
     /**
      * fonction pour dessiner Big Ben
+     * @param BABYLON Variable de Babylonjs
+     * @param scene scène où est dessiné Big Ben
      */
-
     public Draw(BABYLON:any,scene:any){
       //couleurs
       var matsocle=new BABYLON.StandardMaterial("matsocle1",scene);

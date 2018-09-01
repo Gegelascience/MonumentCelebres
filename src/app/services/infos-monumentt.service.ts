@@ -10,10 +10,14 @@ import { Http } from "@angular/http";
 export class InfosMonumenttService {
 
   /**
-   * url du fichier json
+   * url du fichier de traductions
    */
   
   private _url:string='./src/assets/data/infos';
+
+  /**
+   * format du fichier de traductions
+   */
   private format:string=".json";
 
   /**
@@ -24,19 +28,18 @@ export class InfosMonumenttService {
   /**
    * Constructeur important le module http
    */
-
   constructor(private http : Http) { }
 
   /**
    * Récupere les détails des monuments sous format json
    */
-
-  getInfoMonument(){
+  getInfoMonument():any{
     return this.http.get(this._url+this.langue+this.format)
    };
 
+   
    /**
-    * récupère la langue du site
+    * Récupère la langue du site
     */
    getlangue():string{
      return this.langue;
@@ -46,7 +49,7 @@ export class InfosMonumenttService {
     * update la langue du site
     * @param lang langue
     */
-   updateLangue(lang:string){
+   updateLangue(lang:string):void{
      this.langue=lang;
    }
 }

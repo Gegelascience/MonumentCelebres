@@ -4,7 +4,10 @@
 
 export class TourEiffel {
 
-  offset:number=100;
+  /**
+   * offset du monument par rapport à la caméra
+   */
+  offset:number=200;
   /**
    * Constructeur par défaut
    */
@@ -14,8 +17,9 @@ export class TourEiffel {
 
     /**
      * fonction pour dessiner la tour Eiffel
+     * @param BABYLON Variable de Babylonjs
+     * @param scene scène où est dessiné la tour Eiffel
      */
-
     public Draw(BABYLON:any,scene:any){
         //couleurs
       var matsocle=new BABYLON.StandardMaterial("matsocle1",scene);
