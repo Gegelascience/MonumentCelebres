@@ -1,5 +1,3 @@
-<link href="../../assets/images/flags/flags.css" rel=stylesheet type="text/css">
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-success d-flex">
     <a class="navbar-brand" routerLink="/accueil" >{{'TITLE'|translate}}</a>
     <ul class="nav navbar-nav">
@@ -10,16 +8,16 @@
         <a class="nav-link" routerLink="/stat" >{{'STAT'|translate}} <span class="sr-only">(current)</span></a>				
       </li>
     </ul>
-    <div class="dropdown ml-auto p-2">
+    <div class="ml-auto p-2 dropdown">
       <button class="btn btn-white dropdown-toggle" type="button" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img id="flag" src="../../assets/images/flags/blank.gif" class="flag flag-fr m-1" alt="France" />
+        <img id="flag" src="assets/images/flags/blank.gif" class="flag flag-fr m-1" alt="France" />
         <div id="language" class="d-inline">
           Français
         </div>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownLang">
-        <button class="dropdown-item" type="button" (click)="setLanguage('en')" ><img src="../../assets/images/flags/blank.gif" class="flag flag-gb m-1" alt="United Kingdom" />English</button>
-        <button class="dropdown-item" type="button" (click)="setLanguage('fr')" ><img src="../../assets/images/flags/blank.gif" class="flag flag-fr m-1" alt="France" />Français</button>
+        <button class="dropdown-item" (click)="setLanguage('en')" ><img src="assets/images/flags/blank.gif" class="flag flag-gb m-1" alt="United Kingdom" />English</button>
+        <button class="dropdown-item" (click)="setLanguage('fr')" ><img src="assets/images/flags/blank.gif" class="flag flag-fr m-1" alt="France" />Français</button>
       </div>
     </div>
   </nav>
