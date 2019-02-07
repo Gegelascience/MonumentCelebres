@@ -1,27 +1,32 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">{{'HOME'|translate}}</li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{ "HOME" | translate }}
+    </li>
   </ol>
 </nav>
 
-<div class="card text-center w-100 p-3 border-success mb-3" style="width: 18rem;">
+<div
+  class="card text-center w-100 p-3 border-success mb-3"
+  style="width: 18rem;"
+>
   <div class="card-body">
-    <h5 class="card-title">{{'WELCOME'|translate}}</h5>
-    <p class="card-text">{{'INTRO'|translate}}</p>
+    <h5 class="card-title">{{ "WELCOME" | translate }}</h5>
+    <p class="card-text">{{ "INTRO" | translate }}</p>
   </div>
 </div>
 <!--Map-->
 <div class=" text-center">
   <h5>
-    {{'PLACE'|translate}}
+    {{ "PLACE" | translate }}
   </h5>
   <div id="map" class="map"></div>
   <div id="popup" class="ol-popup">
     <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-    <div id="popup-content" >
-      <div class="choiceTop" routerLink="/monument/0" >{{data[0].nom}}</div>
-      <div routerLink="/monument/1" >{{data[1].nom}}</div>
-      <div class="choiceBottom"  routerLink="/monument/2" >{{data[2].nom}}</div>
+    <div id="popup-content">
+      <a class="choiceTop" routerLink="/monument/0">{{ data[0].nom }}</a>
+      <a routerLink="/monument/1">{{ data[1].nom }}</a>
+      <a class="choiceBottom" routerLink="/monument/2">{{ data[2].nom }}</a>
     </div>
   </div>
 </div>
