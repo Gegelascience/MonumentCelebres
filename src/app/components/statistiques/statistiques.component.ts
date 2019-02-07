@@ -83,7 +83,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
       // do something
       this.info.getInfoMonument()
       .subscribe(data=>{
-        this.data=data.json();
+        this.data=data;
         this.remoChartHeight();      
         this.DrawCharHeight();
         this.removeTab(event.lang);
@@ -104,7 +104,7 @@ export class StatistiquesComponent implements OnInit,OnDestroy {
   ngOnInit() {
     this.info.getInfoMonument()
     .subscribe(data=>{
-      this.data=data.json();
+      this.data=data;
       this.DrawCharHeight();
       this.fillTab();
     });
