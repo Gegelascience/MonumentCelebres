@@ -195,7 +195,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/accueil/accueil.component.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/accueil/accueil.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -287,7 +287,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/app/components/accueil/accueil.component.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/app/components/accueil/accueil.component.ts:154</a></div>
                             </td>
                         </tr>
 
@@ -327,7 +327,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/components/accueil/accueil.component.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/components/accueil/accueil.component.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -367,7 +367,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/components/accueil/accueil.component.ts:72</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/accueil/accueil.component.ts:73</a></div>
                             </td>
                         </tr>
 
@@ -407,7 +407,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/accueil/accueil.component.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/accueil/accueil.component.ts:63</a></div>
                             </td>
                         </tr>
 
@@ -465,7 +465,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/accueil/accueil.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/accueil/accueil.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -505,7 +505,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/accueil/accueil.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/accueil/accueil.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -540,7 +540,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/accueil/accueil.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/accueil/accueil.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -559,36 +559,35 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit,OnDestroy } from &#x27;@angular/core&#x27;;
-import {Map,View,Feature,Overlay} from &#x27;ol&#x27;;
-import {Tile as TileLayer, Vector as VectorLayer} from &#x27;ol/layer.js&#x27;;
-import OSM from &#x27;ol/source/OSM&#x27;;
-import {fromLonLat} from &#x27;ol/proj.js&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &quot;@angular/core&quot;;
+import { Map, View, Feature, Overlay } from &quot;ol&quot;;
+import { Tile as TileLayer, Vector as VectorLayer } from &quot;ol/layer.js&quot;;
+import OSM from &quot;ol/source/OSM&quot;;
+import { fromLonLat } from &quot;ol/proj.js&quot;;
 import { Point } from &quot;ol/geom&quot;;
-import { Icon,Style } from &quot;ol/style&quot;;
-import VectorSource from &#x27;ol/source/Vector.js&#x27;;
-import {InfosMonumenttService} from &#x27;../../services/infos-monumentt.service&#x27;;
-import { TranslateService,LangChangeEvent } from &quot;@ngx-translate/core&quot;;
+import { Icon, Style } from &quot;ol/style&quot;;
+import VectorSource from &quot;ol/source/Vector.js&quot;;
+import { InfosMonumenttService } from &quot;../../services/infos-monumentt.service&quot;;
+import { TranslateService, LangChangeEvent } from &quot;@ngx-translate/core&quot;;
 
 /**
  * page d&#x27;accueil
  */
 @Component({
-  selector: &#x27;app-accueil&#x27;,
-  templateUrl: &#x27;./accueil.component.html&#x27;,
-  styleUrls: [&#x27;./accueil.component.css&#x27;]
+  selector: &quot;app-accueil&quot;,
+  templateUrl: &quot;./accueil.component.html&quot;,
+  styleUrls: [&quot;./accueil.component.css&quot;]
 })
-export class AccueilComponent implements OnInit,OnDestroy {
-
+export class AccueilComponent implements OnInit, OnDestroy {
   /**
    * Données
    */
-  private data:any[]&#x3D;[];
+  private data: any[] &#x3D; [];
 
   /**
    * memoire handler traduction
    */
-  langMemo:any;
+  langMemo: any;
 
   /**
    * carte des emplacements
@@ -600,29 +599,31 @@ export class AccueilComponent implements OnInit,OnDestroy {
    * @param info Service InfosMonumentt
    * @param translate Service de traduction
    */
-  constructor(private info:InfosMonumenttService,private translate:TranslateService) { 
-    var lang&#x3D;info.getlangue();
-    this.langMemo&#x3D;translate.onLangChange.subscribe((event: LangChangeEvent) &#x3D;&gt; {
-      // do something
-      this.info.getInfoMonument()
-      .subscribe(data&#x3D;&gt;{
-        this.data&#x3D;data.json();
-        var layers&#x3D;this.map.getLayers();
-        layers.pop();
-        var markers&#x3D;this.createFeatures();
-        layers.push(markers);
-      });
-      
-    });
+  constructor(
+    private info: InfosMonumenttService,
+    private translate: TranslateService
+  ) {
+    var lang &#x3D; info.getlangue();
+    this.langMemo &#x3D; translate.onLangChange.subscribe(
+      (event: LangChangeEvent) &#x3D;&gt; {
+        // do something
+        this.info.getInfoMonument().subscribe(data &#x3D;&gt; {
+          this.data &#x3D; data;
+          var layers &#x3D; this.map.getLayers();
+          layers.pop();
+          var markers &#x3D; this.createFeatures();
+          layers.push(markers);
+        });
+      }
+    );
   }
 
   /**
-  * Dessine la carye
-  */
+   * Dessine la carye
+   */
   ngOnInit() {
-    this.info.getInfoMonument()
-    .subscribe(data&#x3D;&gt;{
-      this.data&#x3D;data.json();
+    this.info.getInfoMonument().subscribe(data &#x3D;&gt; {
+      this.data &#x3D; data;
       this.DrawMap();
     });
   }
@@ -630,23 +631,23 @@ export class AccueilComponent implements OnInit,OnDestroy {
   /**
    * Détruit le composant
    */
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.langMemo.unsubscribe();
   }
 
   /**
    *Dessin de la carte des monuments
    */
-  DrawMap():void{
+  DrawMap(): void {
     //centre de la map
-    var centerMap&#x3D;fromLonLat([2.287592000000018,40.862725 ]);
+    var centerMap &#x3D; fromLonLat([2.287592000000018, 40.862725]);
 
     /**
-    * Elements that make up the popup.
-    */
-    var container &#x3D; document.getElementById(&#x27;popup&#x27;);
-    var content &#x3D; document.getElementById(&#x27;popup-content&#x27;);
-    var closer &#x3D; document.getElementById(&#x27;popup-closer&#x27;);
+     * Elements that make up the popup.
+     */
+    var container &#x3D; document.getElementById(&quot;popup&quot;);
+    var content &#x3D; document.getElementById(&quot;popup-content&quot;);
+    var closer &#x3D; document.getElementById(&quot;popup-closer&quot;);
 
     /**
      * Create an overlay to anchor the popup to the map.
@@ -662,49 +663,45 @@ export class AccueilComponent implements OnInit,OnDestroy {
     /**
      * Add a click handler to hide the popup.
      * @return {boolean} Don&#x27;t follow the href.
-      */
+     */
     closer.onclick &#x3D; function() {
       overlay.setPosition(undefined);
       closer.blur();
       return false;
     };
 
-
-    var vectorLayer&#x3D;this.createFeatures();
+    var vectorLayer &#x3D; this.createFeatures();
 
     //dessin de la carte
     this.map &#x3D; new Map({
-      target: &#x27;map&#x27;,
+      target: &quot;map&quot;,
       layers: [
         new TileLayer({
-          source: new OSM({
-            
-          })
+          source: new OSM({})
         }),
         vectorLayer
       ],
-      overlays:[overlay],
+      overlays: [overlay],
       view: new View({
         center: centerMap,
         zoom: 4
       })
     });
 
-     /**
-      * Add a click handler to the map to render the popup.
+    /**
+     * Add a click handler to the map to render the popup.
      */
-    this.map.on(&#x27;singleclick&#x27;, function(evt) {
+    this.map.on(&quot;singleclick&quot;, function(evt) {
       var coordinate &#x3D; evt.coordinate;
-      var hasMarker&#x3D;this.hasFeatureAtPixel(evt.pixel);
+      var hasMarker &#x3D; this.hasFeatureAtPixel(evt.pixel);
       if (hasMarker) {
-        var marker&#x3D;this.getFeaturesAtPixel(evt.pixel);
-        var nom &#x3D; marker[0].values_.name;  
+        var marker &#x3D; this.getFeaturesAtPixel(evt.pixel);
+        var nom &#x3D; marker[0].values_.name;
         for (let index &#x3D; 0; index &lt; content.children.length; index++) {
-          if(content.children[index].innerHTML&#x3D;&#x3D;nom){
-            content.children[index].setAttribute(&quot;style&quot;,&quot;visibility:visible&quot;);
-          }
-          else{
-            content.children[index].setAttribute(&quot;style&quot;,&quot;visibility:hidden&quot;);
+          if (content.children[index].innerHTML &#x3D;&#x3D; nom) {
+            content.children[index].setAttribute(&quot;style&quot;, &quot;visibility:visible&quot;);
+          } else {
+            content.children[index].setAttribute(&quot;style&quot;, &quot;visibility:hidden&quot;);
           }
         }
         overlay.setPosition(coordinate);
@@ -715,40 +712,39 @@ export class AccueilComponent implements OnInit,OnDestroy {
   /**
    * Crée les marqueurs
    */
-  createFeatures(){
+  createFeatures() {
     //dessin des markers
-    var markers&#x3D;[];
+    var markers &#x3D; [];
     for (let index &#x3D; 0; index &lt; this.data.length; index++) {
       var tmp &#x3D; new Feature({
-        type: &#x27;icon&#x27;,
-        geometry: new Point(fromLonLat([this.data[index].longitude, this.data[index].latitude])),
-        name:this.data[index].nom,
-        id:index
+        type: &quot;icon&quot;,
+        geometry: new Point(
+          fromLonLat([this.data[index].longitude, this.data[index].latitude])
+        ),
+        name: this.data[index].nom,
+        id: index
       });
       markers.push(tmp);
     }
-    var style&#x3D;{
-      &#x27;icon&#x27;: new Style({
+    var style &#x3D; {
+      icon: new Style({
         image: new Icon({
           anchor: [0.5, 1],
-          src: &#x27;assets/images/marker.png&#x27;
+          src: &quot;assets/images/marker.png&quot;
         })
-      }),
+      })
     };
     var vectorLayer &#x3D; new VectorLayer({
       source: new VectorSource({
         features: markers
       }),
       style: function(feature) {
-          
-        return style[feature.get(&#x27;type&#x27;)];
+        return style[feature.get(&quot;type&quot;)];
       }
     });
 
     return vectorLayer;
-    
   }
-
 }
 </code></pre>
     </div>
